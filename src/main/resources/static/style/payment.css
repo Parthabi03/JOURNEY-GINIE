@@ -1,0 +1,110 @@
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Container for the page */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header section */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+header p {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Payment options section */
+.payment-options {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.payment-option input {
+    margin-right: 10px;
+}
+
+.payment-option label {
+    font-size: 18px;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.payment-option img {
+    margin-right: 10px;
+}
+
+/* Payment details section */
+.payment-details {
+    margin-top: 30px;
+}
+
+.payment-details label {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.payment-details input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.pay-now-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.pay-now-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+    padding-top: 30px;
+}
