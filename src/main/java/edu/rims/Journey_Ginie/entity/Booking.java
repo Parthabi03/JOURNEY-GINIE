@@ -24,6 +24,10 @@ public class Booking extends Auditable {
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "destination_id", referencedColumnName = "destination_id", nullable = false)
+    private Destination destination;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tour_id", referencedColumnName = "tour_id", nullable = false)
     private Tour tour;
 

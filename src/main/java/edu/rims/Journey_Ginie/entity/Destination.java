@@ -1,7 +1,8 @@
 package edu.rims.Journey_Ginie.entity;
 
-import jakarta.persistence.*;
+import java.util.List;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,11 +16,11 @@ public class Destination extends Auditable {
     @Column(name = "destination_id", nullable = false)
     private String destinationId;
 
-    @Column(name = "name", nullable = false, length = 100)
-    private String name;
+    @Column(name = "destination_name", nullable = false, length = 100)
+    private String destinationName;
 
-    @Column(name = "description", columnDefinition = "TEXT")
-    private String description;
+    @Column(name = "destination_description", columnDefinition = "TEXT")
+    private String destinationDescription;
 
     @Column(name = "country", nullable = false, length = 100)
     private String country;
@@ -29,5 +30,8 @@ public class Destination extends Auditable {
 
     @Column(name = "image_url", length = 255)
     private String imageUrl;
+
+    @OneToMany(mappedBy = "destination")
+    private List<Booking> bookings;
 }
 
