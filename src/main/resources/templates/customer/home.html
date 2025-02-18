@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
+
 <body>
   <header>
     <nav class="flex flex-between">
@@ -30,10 +31,11 @@
     </div>
   </header>
 
-  <section class="destinations">
+ <section class="destinations">
     <h2 class="title">DESTINATIONS</h2>
     <div class="destination-grid flex pl-1">
-      <div class="destination">
+      <div class="destination" data-th-each="destination: ${destinations}">
+        <a data-th-href="|/customer/destination"></a>
         <img src="/img/hp.jpg" alt="London">
         <h4 class="img-name">LONDON</h4>
       </div>
@@ -204,7 +206,7 @@
           <li><a href="#"><b>Experiences</b></a></li>
           <li><a href="#"><b>Festivals and Events</b></a></li>
           <li><a href="#"><b>FAQs</b></a></li>
-          <li><a href="#"><b>Incredible India Content Hub</b></a></li>
+          <li><a href="#"><b>Journey-Ginie Content Hub</b></a></li>
         </ul>
       </div>
       <div class="footer-section">
@@ -212,16 +214,15 @@
         <p><b>Sign up for exciting news, events, and great travel ideas.</b></p>
         <button class="newsletter">Subscribe now</button>
       </div>
-      <div class="footer-section qr-section">
+      <!-- <div class="footer-section qr-section">
         <h3><b>Scan to chat</b></h3>
       <b><img src="https://via.placeholder.com/120" alt="QR Code"></b>
-      </div>
+      </div> -->
     </div>
     <div class="footer-links">
       <a href="#"><b>Terms of Use</b></a>
       <a href="#"><b>Privacy Policy</b></a>
       <a href="#"><b>Contact Us</b></a>
-      <p><b>© Ministry of Tourism, Government of India</b></p>
     </div>
   </footer>
   </section>

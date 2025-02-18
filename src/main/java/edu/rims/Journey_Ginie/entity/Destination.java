@@ -14,7 +14,12 @@ public class Destination extends Auditable {
 
     @Id
     @Column(name = "destination_id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String destinationId;
+
+    // @ManyToOne
+    // @JoinColumn(name = "user_id",referencedColumnName = "user_id", nullable = false)
+    // private User user;
 
     @Column(name = "destination_name", nullable = false, length = 100)
     private String destinationName;
@@ -33,5 +38,6 @@ public class Destination extends Auditable {
 
     @OneToMany(mappedBy = "destination")
     private List<Booking> bookings;
+
 }
 

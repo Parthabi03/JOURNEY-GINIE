@@ -14,15 +14,12 @@ import lombok.Setter;
 public class Wishlist extends Auditable {
 
     @Id
-    @Column(name = "wishlist_id", length = 255)
+    @Column(name = "wishlist_name", length = 255)
     private String wishlistId;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
-
-    @Column(name = "destination_name", nullable = false, length = 255)
-    private String destinationName;
 
     @ManyToOne
     @JoinColumn(name = "tour_id")
