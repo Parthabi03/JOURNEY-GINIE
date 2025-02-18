@@ -83,18 +83,17 @@ CREATE TABLE review (
 );
 
 -- Destination Table
-CREATE TABLE destination (
+    updated_CREATE TABLE destination (
     destination_id VARCHAR(255) PRIMARY KEY,
     destination_name VARCHAR(100) NOT NULL,
     destination_description TEXT,
     country VARCHAR(100) NOT NULL,
     city VARCHAR(100) NOT NULL,
     image_url VARCHAR(255),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    creaed_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    created_by VARCHAR(255),
-    updated_by VARCHAR(255)
+    created_by VARCHAR(50),
+    updated_by VARCHAR(50)
 );
 CREATE TABLE wishlist (
     wishlist_id VARCHAR(255) PRIMARY KEY,

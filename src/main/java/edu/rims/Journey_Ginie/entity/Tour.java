@@ -21,6 +21,10 @@ public class Tour extends Auditable {
     @Column(name = "tour_id", length = 255)
     private String tourId;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id",referencedColumnName = "user_id", nullable = false)
+    private User user;
+
     @Column(name = "tour_title", length = 200, nullable = false)
     private String tourTitle;
 

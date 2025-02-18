@@ -45,5 +45,12 @@ public class User extends Auditable {
 
     @OneToMany(mappedBy = "user")
     private List<Wishlist> wishlists;
+
+    // @OneToMany(mappedBy = "user")
+    // private List<Destination> destinations;
+
+    @OneToMany(mappedBy = "user")
+    private List<Tour> tours;
+    
     
 }
