@@ -1,0 +1,62 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+/* Header */
+header {
+    background: #ff6600;
+    color: white;
+    padding: 20px;
+    font-size: 1.5em;
+}
+
+/* Sections */
+section {
+    padding: 40px;
+}
+
+/* Flight Offers */
+.flights, .discounts, .destinations, .tour-packages {
+    background: white;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.flight-container, .discount-container, .destination-container, .package-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.flight, .discount, .destination, .package {
+    width: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.flight img, .discount img, .destination img, .package img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Hover Animation */
+.flight:hover, .discount:hover, .destination:hover, .package:hover {
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+}

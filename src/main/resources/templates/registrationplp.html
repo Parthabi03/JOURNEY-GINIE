@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journey Ginnie - Registration</title>
+    <link rel="stylesheet" href="../static/style/registrationplp.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Register for Journey Ginnie</h2>
+        <form action="submit_form.php" method="POST">
+            
+            <div class="form-group">
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" name="fullname" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="aadhaar">Aadhaar Number:</label>
+                <input type="text" id="aadhaar" name="aadhaar" required pattern="\d{12}" maxlength="12" placeholder="Enter 12-digit Aadhaar number">
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="budget">Travel Budget (₹):</label>
+                <input type="number" id="budget" name="budget" required min="1000" placeholder="Enter your budget">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Set Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Register">
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>
