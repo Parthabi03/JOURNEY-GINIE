@@ -1,0 +1,134 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #05055f; /* Beige Background */
+    text-align: center;
+    padding: 20px;
+}
+
+.title {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #ccfdfe; /* Neon Blue */
+    font-weight: bold;
+    text-shadow: 0px 0px 8px #00f7ff;
+}
+
+.destinations-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    justify-content: center;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Destination Card Styling */
+.destination-card {
+    background: rgb(32, 5, 5);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.destination-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Destination Image with New Shape and Animation */
+.destination-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: transform 0.4s ease-in-out;
+}
+
+.destination-card:hover img {
+    transform: translateY(-10px) rotateY(10deg);
+}
+
+/* Destination Info */
+.destination-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+h2 {
+    font-size: 22px;
+    color: #00f7ff; /* Neon Blue */
+    margin-bottom: 8px;
+    text-shadow: 0px 0px 6px #00f7ff;
+}
+
+p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+/* Button Container */
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Buttons */
+.price-btn, .book-btn {
+    border: none;
+    padding: 12px 18px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 6px;
+    width: 48%;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.price-btn {
+    background-color: #ffcc00;
+    color: black;
+}
+
+.book-btn {
+    background-color: #ff5733;
+    color: white;
+}
+
+.book-btn:hover {
+    background-color: #e04e1e;
+}
+
+.price-btn:hover {
+    background-color: #e6b800;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .destinations-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .destinations-container {
+        grid-template-columns: 1fr;
+    }
+}
