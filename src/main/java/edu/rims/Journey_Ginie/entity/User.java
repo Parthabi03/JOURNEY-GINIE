@@ -37,6 +37,12 @@ public class User extends Auditable {
     @Column(name = "user_image_url", columnDefinition = "TEXT")
     private String userImageUrl;
 
+    @Column(name = "user_gender")
+    private String userGender;
+
+    @Column(name = "user_budget", nullable = false)
+    private Double userBudget;
+
     @OneToMany(mappedBy = "user")
     private List<Booking> bookings;
 
