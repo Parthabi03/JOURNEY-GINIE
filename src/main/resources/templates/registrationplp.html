@@ -9,62 +9,75 @@
 <body>
     <div class="container">
         <h2>Register for Journey Ginnie</h2>
-        <form action="submit_form.php" method="POST">
+        <form id="registrationForm">
             
+            <!-- Full Name -->
             <div class="form-group">
-                <label for="fullname">Full Name:</label>
-                <input type="text" id="fullname" name="fullname" required>
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname" required placeholder="Enter your full name">
             </div>
 
+            <!-- Email -->
             <div class="form-group">
-                <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" required>
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
             </div>
 
+            <!-- Phone Number -->
             <div class="form-group">
-                <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone" required>
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" maxlength="10" placeholder="Enter 10-digit phone number">
             </div>
 
+            <!-- Aadhaar Number -->
             <div class="form-group">
-                <label for="aadhaar">Aadhaar Number:</label>
+                <label for="aadhaar">Aadhaar Number</label>
                 <input type="text" id="aadhaar" name="aadhaar" required pattern="\d{12}" maxlength="12" placeholder="Enter 12-digit Aadhaar number">
             </div>
 
+            <!-- Date of Birth -->
             <div class="form-group">
-                <label for="dob">Date of Birth:</label>
+                <label for="dob">Date of Birth</label>
                 <input type="date" id="dob" name="dob" required>
             </div>
 
+            <!-- Gender -->
             <div class="form-group">
-                <label for="gender">Gender:</label>
-                <select id="gender" name="gender">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="other">Other</option>
                 </select>
             </div>
 
+            <!-- Budget -->
             <div class="form-group">
-                <label for="budget">Travel Budget (₹):</label>
+                <label for="budget">Travel Budget (₹)</label>
                 <input type="number" id="budget" name="budget" required min="1000" placeholder="Enter your budget">
             </div>
 
+            <!-- Password -->
             <div class="form-group">
-                <label for="password">Set Password:</label>
-                <input type="password" id="password" name="password" required>
+                <label for="password">Set Password</label>
+                <input type="password" id="password" name="password" required minlength="6" placeholder="Enter password">
             </div>
 
+            <!-- Confirm Password -->
             <div class="form-group">
-                <label for="confirm-password">Confirm Password:</label>
-                <input type="password" id="confirm-password" name="confirm-password" required>
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required minlength="6" placeholder="Re-enter password">
             </div>
 
+            <!-- Submit Button -->
             <div class="form-group">
-                <input type="submit" value="Register">
+                <button type="submit">Register</button>
             </div>
 
         </form>
     </div>
+
+    <script src="script.js"></script> 
 </body>
 </html>
