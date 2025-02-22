@@ -85,7 +85,7 @@ header nav ul a {
 
 .destination {
     text-align: center;
-    height: 500px;
+    height: 300px;
     width: 75%;
     border-radius: 60px;
     transition: 0.5s;
@@ -93,7 +93,7 @@ header nav ul a {
 
 .destination img {
     width: 100%;
-    height: 100%;
+    height: 500px;
     object-fit: cover;
     border-radius: 60px;
     display: flex;
@@ -137,7 +137,8 @@ button.discover-btn:active {
 }
 
 .attraction h2 {
-    margin-bottom: 1rem;
+     margin-bottom: 1rem; 
+     padding-top: 300px;
 }
 
 .box {
@@ -301,6 +302,32 @@ button.discover-btn:active {
     padding: 20px;
     display: flex; 
     gap: 20px;
+}
+.btn-container {
+    text-align: center;
+}
+
+button.booking-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    /* margin-top: 30px; */
+    padding: 18px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button.booking-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+button.booking-btn:active {
+    background-color: #004494;
+    transform: translateY(0);
 }
 
 .offer-card {

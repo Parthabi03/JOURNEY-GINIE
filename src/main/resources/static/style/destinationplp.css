@@ -8,7 +8,7 @@
 /* Gradient Background */
 body {
   font-family: 'Arial', sans-serif;
-  background: linear-gradient(to bottom right, #87CEFA, #FFA07A);
+  background: linear-gradient(to bottom right, #87CEFA, #c55529);
   color: #333;
   line-height: 1.6;
 }

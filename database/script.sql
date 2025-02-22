@@ -11,12 +11,14 @@ CREATE TABLE user (
     user_password VARCHAR(255) NOT NULL,
     user_adharcard VARCHAR(255) NOT NULL,
     user_image_url TEXT NULL,
+    user_gender VARCHAR(20),
     creaed_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     created_by VARCHAR(255),
     updated_by VARCHAR(255)
 
 );
+
 -- Tours Table
 CREATE TABLE tour (
     tour_id VARCHAR(255) PRIMARY KEY,
