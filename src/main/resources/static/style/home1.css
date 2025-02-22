@@ -303,6 +303,32 @@ button.discover-btn:active {
     display: flex; 
     gap: 20px;
 }
+.btn-container {
+    text-align: center;
+}
+
+button.booking-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    /* margin-top: 30px; */
+    padding: 18px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button.booking-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+button.booking-btn:active {
+    background-color: #004494;
+    transform: translateY(0);
+}
 
 .offer-card {
     height: 310px;

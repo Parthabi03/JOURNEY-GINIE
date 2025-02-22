@@ -1,12 +1,13 @@
  /* General Styles */
 body {
     font-family: Arial, sans-serif;
-    background:  #b1bcc7e2; 
+    background:  #b1bcc7e2;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+
 }
 
 .form-container {
