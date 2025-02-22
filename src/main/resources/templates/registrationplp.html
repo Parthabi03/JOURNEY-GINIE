@@ -10,31 +10,24 @@
 
 <body>
     <header>
-  <section class="bg"
-    style="background-image: url('/img/ice.jpg'); background-size: cover; background-position: center;"> 
     <div class="form-container">
         <h2>Journey-Ginie Registration Form</h2>
         <form method="post" action="/registrationplp">
+
             <label>Full Name</label>
-            <div style="display: flex; gap: 10px;">
-                <input type="text" id="firstName" name="userName" placeholder="First Name" required>
-                <input type="text" id="lastName" name="userName" placeholder="Last Name" required>
-            </div>
+            <input type="text" id="FullName" name="userName" placeholder="Full Name" required>
 
             <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="example@example.com" required>
+            <input type="email" id="email" name="userEmail" placeholder="example@example.com" required>
 
             <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="(000) 000-0000" required>
+            <input type="tel" id="phone" name="userPhoneNumber" placeholder="(000) 000-0000" required>
 
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Enter Password" required>
-
-            <!-- <label for="password">Confirm Password</label>
-            <input type="password" id="password" name="password" placeholder="Enter Password" required> -->
+            <input type="password" id="password" name="userPassword" placeholder="Enter Password" required>
 
             <label for="aadhar">Aadhar Number</label>
-            <input type="text" id="aadhar" name="aadhar" placeholder="XXXX-XXXX-XXXX" required>
+            <input type="text" id="aadhar" name="userAdharcard" placeholder="XXXX-XXXX-XXXX" required>
 
             <div class="gender-group">
                 <label>Gender</label>
@@ -53,7 +46,6 @@
             <button type="submit" class="submit-btn">Register</button>
         </form>
     </div>
-    </section>
     </header>
 </body>
 

@@ -1,17 +1,20 @@
  /* General Styles */
 body {
     font-family: Arial, sans-serif;
-    background:  #b1bcc7e2;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    background: url('/img/regbg.gif');
+    background-repeat: no-repeat;  
+    background-size: cover; 
+    background-position: center;
 
 }
 
 .form-container {
-    background: rgba(53, 30, 3, 0.4);
+    background: rgba(6, 93, 185, 0.4);
     padding: 20px 30px;
     border-radius: 8px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);

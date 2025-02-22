@@ -12,7 +12,6 @@ CREATE TABLE user (
     user_adharcard VARCHAR(255) NOT NULL,
     user_image_url TEXT NULL,
     user_gender VARCHAR(20),
-    user_budget DOUBLE NOT NULL,
     creaed_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     created_by VARCHAR(255),
