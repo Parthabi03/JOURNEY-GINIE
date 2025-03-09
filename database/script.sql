@@ -11,12 +11,46 @@ CREATE TABLE user (
     user_password VARCHAR(255) NOT NULL,
     user_adharcard VARCHAR(255) NOT NULL,
     user_image_url TEXT NULL,
+    user_gender VARCHAR(20),
     creaed_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     created_by VARCHAR(255),
     updated_by VARCHAR(255)
 
 );
+-- Destination Table
+    CREATE TABLE destination (
+    destination_id VARCHAR(255) PRIMARY KEY,
+    destination_name VARCHAR(100) NOT NULL,
+    destination_description TEXT,
+    country VARCHAR(100) NOT NULL,
+    city VARCHAR(100) NOT NULL,
+    image_url VARCHAR(255),
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    created_by VARCHAR(50),
+    updated_by VARCHAR(50)
+);
+
+CREATE TABLE destination_place (
+    place_id VARCHAR(255) PRIMARY KEY,
+    destination_id VARCHAR(255) NOT NULL,
+    place_name VARCHAR(150) NOT NULL,
+    place_description TEXT NULL, 
+    image_url TEXT NULL,
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    created_by VARCHAR(50),
+    updated_by VARCHAR(50),
+    FOREIGN KEY (destination_id) REFERENCES destination(destination_id) ON DELETE CASCADE
+);
+
+-- Attraction Table
+CREATE TABLE attractions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    image_url VARCHAR(255) NOT NULL
+);
+
 -- Tours Table
 CREATE TABLE tour (
     tour_id VARCHAR(255) PRIMARY KEY,
@@ -34,22 +68,39 @@ CREATE TABLE tour (
 
 );
 
--- Bookings Table
 CREATE TABLE booking (
     booking_id VARCHAR(255) PRIMARY KEY,
     user_id INT NOT NULL,
     tour_id VARCHAR(255) NOT NULL,
+    destination_id VARCHAR(255) NOT NULL,
     booking_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     booking_status ENUM('PENDING', 'CONFIRMED', 'CANCELED','COMPLETED') DEFAULT 'PENDING',
     number_of_guests INT NOT NULL,
     total_amount DOUBLE NOT NULL,
     FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE,
     FOREIGN KEY (tour_id) REFERENCES tour(tour_id) ON DELETE CASCADE,
-    creaed_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     created_by VARCHAR(255),
     updated_by VARCHAR(255)
 );
+
+-- Bookings Table
+-- CREATE TABLE booking (
+--     booking_id VARCHAR(255) PRIMARY KEY,
+--     user_id INT NOT NULL,
+--     tour_id VARCHAR(255) NOT NULL,
+--     booking_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+--     booking_status ENUM('PENDING', 'CONFIRMED', 'CANCELED','COMPLETED') DEFAULT 'PENDING',
+--     number_of_guests INT NOT NULL,
+--     total_amount DOUBLE NOT NULL,
+--     FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE,
+--     FOREIGN KEY (tour_id) REFERENCES tour(tour_id) ON DELETE CASCADE,
+--     creaed_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+--     updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+--     created_by VARCHAR(255),
+--     updated_by VARCHAR(255)
+-- );
 
 -- Payments Table
 CREATE TABLE payment (
@@ -82,19 +133,7 @@ CREATE TABLE review (
     updated_by VARCHAR(255)
 );
 
--- Destination Table
-    updated_CREATE TABLE destination (
-    destination_id VARCHAR(255) PRIMARY KEY,
-    destination_name VARCHAR(100) NOT NULL,
-    destination_description TEXT,
-    country VARCHAR(100) NOT NULL,
-    city VARCHAR(100) NOT NULL,
-    image_url VARCHAR(255),
-    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    created_by VARCHAR(50),
-    updated_by VARCHAR(50)
-);
+
 CREATE TABLE wishlist (
     wishlist_id VARCHAR(255) PRIMARY KEY,
     user_id INT NOT NULL,

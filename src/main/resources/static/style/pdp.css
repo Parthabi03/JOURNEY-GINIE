@@ -10,14 +10,14 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
-    background: rgba(255, 255, 255, 0.2);
-    position: fixed;
-    width: 100%;
+    padding: 1rem 1.5rem;
+    background-color: #313d58;
+    color: #fff;
+    position: sticky;
     top: 0;
-    backdrop-filter: blur(10px);
-}
-
+    z-index: 1000;
+  }
+  
 .nav-links {
     list-style: none;
     display: flex;

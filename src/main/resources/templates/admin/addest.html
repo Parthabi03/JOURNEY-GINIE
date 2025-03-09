@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Journey-Ginie Admin Dashboard</title>
+  <link rel="stylesheet" href="/style/addest.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h1 class="logo">JOURNEY-GINIE</h1>
+      <nav class="nav-menu">
+        <a href="/admin/adhome" class="nav-item">
+          <i class="fa-solid fa-table-columns icons"></i>Dashboard</a>
+        <a href="/admin/adbook" class="nav-item">
+          <i class="fa-solid fa-receipt icons"></i>Bookings</a>
+        <a href="/admin/adcust" class="nav-item">
+          <i class="fa-solid fa-user icons"></i>
+          Customers</a>
+       <a href="/admin/addest" class="nav-item">
+        <i class="fa-solid fa-plane-departure icons"></i>
+        Destinations
+      </a>
+        <a href="/admin/adtour" class="nav-item">
+          <i class="fa-solid fa-truck-plane icons"></i>Tours</a>
+        <a href="#" class="nav-item">
+          <i class="fa-solid fa-gears icons"></i>Settings</a>
+        <a href="/admin/logout" class="nav-item">
+          <i class="fa-solid fa-right-from-bracket icons"></i>Logout</a>
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header -->
+      <div class="header">
+        <input type="text" placeholder="Search..." class="search-input">
+        <div class="user-profile">
+          <div class="profile-pic"></div>
+        </div>
+        <!-- Add Destination Button -->
+        <button class="add-destination-btn">Add Destination</button>
+      </div>
+
+      <!-- Destination Table -->
+      <table>
+        <thead>
+          <tr>
+            <th>Destination Name</th>
+            <th>Description</th>
+            <th>Country</th>
+            <th>City</th>
+            <th>Image URL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-th-each="destination :${destinations}">
+            <td data-th-text="${destination.destinationName}"></td>
+            <td data-th-text="${destination.destinationDescription}"></td>
+            <td data-th-text="${destination.country}"></td>
+            <td data-th-text="${destination.city}"></td>
+            <td></td>
+          </tr>
+          <!-- <tr>
+            <td>Tokyo</td>
+            <td>A bustling metropolis blending tradition and technology.</td>
+            <td>Japan</td>
+            <td>Tokyo</td>
+            <td>https://example.com/tokyo.jpg</td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Destination Form Modal -->
+  <div class="form-overlay" id="formOverlay">
+    <form class="destination-form" id="destinationForm" method="post" action="/admin/addest">
+      <h2>Add Destination</h2>
+      <label for="destName">Destination Name:</label>
+        <input type="text" name="destinationName" placeholder="Enter Destination Name" id="destName" required>
+
+        <label for="destDescription">Description:</label>
+        <input type="text" name="destinationDescription" placeholder="Enter Description" id="destDescription" required>
+
+        <label for="destCountry">Country:</label>
+        <input type="text" name="country" placeholder="Enter Country" id="destCountry" required>
+
+        <label for="destCity">City:</label>
+        <input type="text" name="city" placeholder="Enter City" id="destCity" required>
+
+        <!-- <label for="imageUpload">Upload Image:</label>
+        <input type="file" name="image_file" id="imageUpload" accept="image/*">
+         -->
+      <div class="form-buttons">
+        <button type="submit" class="submit-btn">Submit</button>
+        <button type="button" class="delete-btn" id="closeForm">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="/script/addest.js"></script>
+</body>
+</html>

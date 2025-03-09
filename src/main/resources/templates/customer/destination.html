@@ -1,30 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Top Travel Destinations</title>
     <link rel="stylesheet" href="/style/destination.css">
+<<<<<<< HEAD:src/main/resources/templates/destination.html
 </head> 
+=======
+</head>
+>>>>>>> db2761add79ae882ec877f8a87e179a3cbbfad40:src/main/resources/templates/customer/destination.html
 
 <body>
+    <nav class="navbar">
+        <div class="logo">JOURNEY GINIE</div>
+        <ul class="nav-links">
+            <li><a href="/customer/pdp">Details</a></li>
+            <li><a href="#">Attractions</a></li>
+            <li><a href="#">Plan Your Trip</a></li>
+        </ul>
+    </nav>
+
     <h1 class="title">Top 10 Travel Destinations</h1>
     <div class="destinations-container">
 
-        <div class="destination-card">
-            <img src="https://d22ir9aoo7cbf6.cloudfront.net/wp-content/uploads/sites/4/2019/08/Ulun-Danu-Beratan-in-Bedugul-Bali-Indonesia-.jpg" alt="Bali, Indonesia">
+        <div class="destination-card" data-th-each="place : ${destination.destinationPlaces}">
+            <img src="/img/bg.jpg" alt="">
             <div class="destination-info">
-                <h2>Bali, Indonesia</h2>
-                <p>Explore beautiful beaches, temples, and tropical forests in Bali.</p>
-                <div class="buttons">
-                    <button class="price-btn">$999</button>
-                    <button class="book-btn">Book Now</button>
-                </div>
+                <h2 data-th-text="${place.placeName}">Bali, Indonesia</h2>
+                <article class="destination">
+                    <a data-th-href="|/customer/destination_place/pdp?destination_place=${place.placeId}|"
+                        style="all: unset;">
+                        <p data-th-text="${place.placeDescription}">Explore beautiful beaches, temples, and tropical forests in Bali.</p>
+                        <!-- <h4 data-th-text="${place.placeName}"></h4> -->
+                        <!-- <p data-th-text="|&#8377; ${place.price}|"></p>  -->
+                        <div class="buttons">
+                            <p class="place-price">&#8377;999</p>
+                            <button class="book-btn">Book Now</button>
+                        </div>
+                    </a>
+                </article>
             </div>
         </div>
 
-        
-        <div class="destination-card">
+
+        <!-- <div class="destination-card">
             <img src="https://wallpaperaccess.com/full/288098.jpg" alt="Paris, France">
             <div class="destination-info">
                 <h2>Paris, France</h2>
@@ -130,8 +151,9 @@
                     <button class="book-btn">Book Now</button>
                 </div>
             </div>
-        </div>
-
+        </div>  -->
     </div>
+
 </body>
+
 </html>

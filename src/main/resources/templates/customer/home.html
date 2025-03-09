@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Journey Ginie</title>
   <link rel="stylesheet" href="/style/home1.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 
@@ -15,30 +17,42 @@
     <nav class="flex flex-between">
       <h1>JOURNEY-GINIE</h1>
       <ul class="flex">
-        <li><a href="#">Destinations</a></li>
+        <li><a href="/customer/destination">Destinations</a></li>
         <li><a href="#">Experiences</a></li>
-        <li><a href="#">Plan Your Trip</a></li>
+        <li><a href="/customer/login">Login</a></li>
       </ul>
     </nav>
     <div class="video">
-      <video src="/video/tour.mp4" autoplay muted loop></video>
+      <video src="/video/travel.mp4" autoplay muted loop></video>
     </div>
     <div class="overlay">
       <div>
         <h1>Explore Incredible World</h1>
         <p>ADVENTURE | NATURE | WILDLIFE | HOLIDAYS | SPIRITUAL</p>
+        <div class="header">
+          <input type="text" placeholder="Search..." class="search-input">
+        </div>
       </div>
     </div>
   </header>
-
- <section class="destinations">
+  
+  <section class="destinations">
     <h2 class="title">DESTINATIONS</h2>
+    <div class="destination-slider">
     <div class="destination-grid flex pl-1">
-      <div class="destination">
-        <img src="/img/hp.jpg" alt="London">
-        <h4 class="img-name">LONDON</h4>
+      <div class="destination" data-th-each="destination : ${destinations}">
+        <a data-th-href="|/customer/destination/destination?destination=${destination.destinationId}|">
+          <div class="destination-image">
+            <img src="/img/hp.jpg" alt="">
+            <h4 class="img-name"></h4>
+          </div>
+        </a>
+        <div class="img-name" data-th-text="${destination.destinationName}"></div>
       </div>
-      <div class="destination">
+    </div>
+      <button class="slider-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+      <button class="slider-btn next" onclick="moveSlide(1)">&#10095;</button>
+      <!-- <div class="destination">
         <img src="/img/dl.jpg" alt="America">
         <h4 class="img-name">AMERICA</h4>
       </div>
@@ -49,12 +63,10 @@
       <div class="destination">
         <img src="/img/korea.jpg" alt="Korea">
         <h4 class="img-name">KOREA</h4>
-      </div>
-    </div>
-    <div class="button-container">
-      <button class="discover-btn" onclick="alert('Discover more')">Discover More</button>
+      </div>-->
     </div>
   </section>
+  <script src="/script/home.js"></script>
 
   <section class="attraction">
     <h2 class="title">ATTRACTIONS</h2>
@@ -62,6 +74,9 @@
       <div class="box"><img src="/img/us.jpg" alt="Attraction"></div>
       <div class="box"><img src="/img/disney.jpg" alt="Disney"></div>
       <div class="box"><img src="/img/home.jpg" alt="Home"></div>
+    </div>
+    <div class="button-container">
+      <button class="discover-btn" onclick="alert('Discover more')">Discover More</button>
     </div>
   </section>
 
@@ -107,7 +122,8 @@
     </div>
   </section>
 
-  <section class="hope" style="background-image: url('/img/aero2.jpg'); background-size: cover; background-position: center;">
+  <section class="hope"
+    style="background-image: url('/img/aero2.jpg'); background-size: cover; background-position: center;">
     <h1>Inspired?</h1>
     <h2>GET STARTED</h2>
     <nav class="tabs">
@@ -118,112 +134,119 @@
       <button class="tab">Accommodations</button>
       <button class="tab">Travel Partners</button>
     </nav>
-  <!-- </section> -->
+    <!-- </section> -->
 
-  <div class="booking-form">
-    <div class="trip-type">
-      <input type="radio" id="one-way" name="trip" checked />
-      <label for="one-way">One Way</label>
+    <div class="booking-form">
+      <div class="trip-type">
+        <input type="radio" id="one-way" name="trip" checked />
+        <label for="one-way">One Way</label>
 
-      <input type="radio" id="round-trip" name="trip" />
-      <label for="round-trip">Round Trip</label>
-    </div>
+        <input type="radio" id="round-trip" name="trip" />
+        <label for="round-trip">Round Trip</label>
+      </div>
 
-    <div class="inputs">
-      <input type="text" placeholder="From: Origin" aria-label="Departure location" />
-      <input type="text" placeholder="To: Destination" aria-label="Arrival location" />
-      <input type="date" value="2025-01-30" />
+      <div class="inputs">
+        <input type="text" placeholder="From: Origin" aria-label="Departure location" />
+        <input type="text" placeholder="To: Destination" aria-label="Arrival location" />
+        <input type="date" value="2025-01-30" />
 
-      <select aria-label="Number of travelers">
-        <option value="1">1 Traveler</option>
-        <option value="2">2 Travelers</option>
-        <option value="3">3 Travelers</option>
-      </select>
+        <select aria-label="Number of travelers">
+          <option value="1">1 Traveler</option>
+          <option value="2">2 Travelers</option>
+          <option value="3">3 Travelers</option>
+        </select>
 
-      <select aria-label="Travel class">
-        <option value="economy">Economy</option>
-        <option value="business">Business</option>
-      </select>
-    </div>
+        <select aria-label="Travel class">
+          <option value="economy">Economy</option>
+          <option value="business">Business</option>
+        </select>
+      </div>
 
-    <div class="fare-type">
-      <label><input type="radio" name="fare" checked /> Regular Fares</label>
-      <label><input type="radio" name="fare" /> Armed Forces Fares</label>
-      <label><input type="radio" name="fare" /> Student Fares</label>
-      <label><input type="radio" name="fare" /> Senior Citizen Fares</label>
-      <label><input type="radio" name="fare" /> Doctors & Nurses Fares</label>
-    </div>
+      <div class="fare-type">
+        <label><input type="radio" name="fare" checked /> Regular Fares</label>
+        <label><input type="radio" name="fare" /> Armed Forces Fares</label>
+        <label><input type="radio" name="fare" /> Student Fares</label>
+        <label><input type="radio" name="fare" /> Senior Citizen Fares</label>
+        <label><input type="radio" name="fare" /> Doctors & Nurses Fares</label>
+      </div>
+
+      <div class="btn-container">
+        <button class="booking-btn" onclick="alert('Book Now')">BOOK YOUR TRIP</button>
+      </div>
+
   </section>
 
-    <div class="container">
-      <h1>Best offers exclusively for you!</h1>
-      <div class="grid"> 
-        <div class="offer-card whatsapp">
-          <img src="/img/bus.jpg" alt="Bus"> 
-          <p>Now Buy/Sell Forex on WhatsApp</p>
-          <p class="message">Message "Hi" on 88791 42236</p>
-        </div>
-        <div class="offer-card dubai">
-          <img src="/img/aerop.jpg" alt="Aerop">
-          <p>Unlock Your Exclusive Offers on Dubai Holidays</p>
-          <p class="discount">Discount up to ₹30,000*</p>
-        </div>
-        <div class="offer-card georgia">
-          <img src="/img/globe.jpg" alt="Globe">
-          <p>Best of Azerbaijan and Georgia</p>
-          <p class="offer">Starting at ₹1,55,600.00</p>
-        </div>
-        <div class="offer-card rann-utsav">
-          <img src="/img/hotel.jpg" alt="Hotel">
-          <p>Rann Utsav</p>
-          <p>3 Days Starting @ ₹15,600.00</p>
-        </div>
-        <div class="offer-card cruise">
-          <img src="/img/off.jpg" alt="Off">
-          <p>Asian Dhamaka With Cruise</p>
-          <p>10 Days @ ₹1,45,800.00</p>
-        </div>
+  <div class="container">
+    <h1>Best offers exclusively for you!</h1>
+    <div class="grid">
+      <div class="offer-card whatsapp">
+        <img src="/img/bus.jpg" alt="Bus">
+        <p>Now Buy/Sell Forex on WhatsApp</p>
+        <p class="message">Message "Hi" on 88791 42236</p>
+      </div>
+      <div class="offer-card dubai">
+        <img src="/img/aerop.jpg" alt="Aerop">
+        <p>Unlock Your Exclusive Offers on Dubai Holidays</p>
+        <p class="discount">Discount up to ₹30,000*</p>
+      </div>
+      <div class="offer-card georgia">
+        <img src="/img/globe.jpg" alt="Globe">
+        <p>Best of Azerbaijan and Georgia</p>
+        <p class="offer">Starting at ₹1,55,600.00</p>
+      </div>
+      <div class="offer-card rann-utsav">
+        <img src="/img/hotel.jpg" alt="Hotel">
+        <p>Rann Utsav</p>
+        <p>3 Days Starting @ ₹15,600.00</p>
+      </div>
+      <div class="offer-card cruise">
+        <img src="/img/off.jpg" alt="Off">
+        <p>Asian Dhamaka With Cruise</p>
+        <p>10 Days @ ₹1,45,800.00</p>
       </div>
     </div>
   </div>
-  <section class="ftr" style="background-image: url('/img/ft.jpg'); background-size: cover; background-position: center;">
-  <footer>
-    <div class="footer-container">
-      <div class="footer-section">
-        <h3>Follow us</h3>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-x-twitter"></i> </a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
-          <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <section class="ftr"
+    style="background-image: url('/img/ft.jpg'); background-size: cover; background-position: center;">
+    <footer>
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>Follow us</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i> </a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
-      </div>
-      <div class="footer-section">
-        <h3><b>Quick links</b></h3>
-        <ul>
-          <li><a href="#"><b>Attractions</b></a></li>
-          <li><a href="#"><b>Experiences</b></a></li>
-          <li><a href="#"><b>Festivals and Events</b></a></li>
-          <li><a href="#"><b>FAQs</b></a></li>
-          <li><a href="#"><b>Journey-Ginie Content Hub</b></a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h3><b>Newsletter</b></h3>
-        <p><b>Sign up for exciting news, events, and great travel ideas.</b></p>
-        <button class="newsletter">Subscribe now</button>
-      </div>
-      <!-- <div class="footer-section qr-section">
+        <div class="footer-section">
+          <h3><b>Quick links</b></h3>
+          <ul>
+            <li><a href="#"><b>Attractions</b></a></li>
+            <li><a href="#"><b>Experiences</b></a></li>
+            <li><a href="#"><b>Festivals and Events</b></a></li>
+            <li><a href="#"><b>FAQs</b></a></li>
+            <li><a href="#"><b>Journey-Ginie Content Hub</b></a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3><b>Newsletter</b></h3>
+          <p><b>Sign up for exciting news, events, and great travel ideas.</b></p>
+          <button class="newsletter">Subscribe now</button>
+        </div>
+        <!-- <div class="footer-section qr-section">
         <h3><b>Scan to chat</b></h3>
       <b><img src="https://via.placeholder.com/120" alt="QR Code"></b>
       </div> -->
-    </div>
-    <div class="footer-links">
-      <a href="#"><b>Terms of Use</b></a>
-      <a href="#"><b>Privacy Policy</b></a>
-      <a href="#"><b>Contact Us</b></a>
-    </div>
-  </footer>
+      </div>
+      <div class="footer-links">
+        <a href="#"><b>Terms of Use</b></a>
+        <a href="#"><b>Privacy Policy</b></a>
+        <a href="#"><b>Contact Us</b></a>
+      </div>
+    </footer>
   </section>
 </body>
+
 </html>

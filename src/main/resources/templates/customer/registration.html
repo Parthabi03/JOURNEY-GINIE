@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Registration Form</title>
+    <link rel="stylesheet" href="/style/registration.css">
+</head>
+
+<body>
+    <header>
+    <div class="form-container">
+        <h2>Journey-Ginie Registration Form</h2>
+        <form method="post" action="/customer/registration">
+
+            <label>Full Name</label>
+            <input type="text" id="FullName" name="userName" placeholder="Full Name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="userEmail" placeholder="example@example.com" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="userPhoneNumber" placeholder="(000) 000-0000" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="userPassword" placeholder="Enter Password" required>
+
+            <label for="aadhar">Aadhar Number</label>
+            <input type="text" id="aadhar" name="userAdharcard" placeholder="XXXX-XXXX-XXXX" required>
+
+            <div class="gender-group">
+                <label>Gender</label>
+                <div class="gender-options">
+                    <input type="radio" id="male" name="gender" value="Male" required>
+                    <label for="male">Male</label>
+            
+                    <input type="radio" id="female" name="gender" value="Female">
+                    <label for="female">Female</label>
+            
+                    <input type="radio" id="other" name="gender" value="Other">
+                    <label for="other">Other</label>
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-btn">Register</button>
+        </form>
+    </div>
+    </header>
+</body>
+
+</html>

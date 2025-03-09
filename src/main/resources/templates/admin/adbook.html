@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Bookings</title>
+    <link rel="stylesheet" href="/style/adbook.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>JOURNEY-GINIE</h2>
+            <ul>
+                <li><a href="/admin/adhome">
+                        <i class="fa-solid fa-table-columns icons"></i>Dashboard</a></li>
+                <li><a href="/admin/adbook">
+                        <i class="fa-solid fa-receipt icons"></i>Bookings</a></li>
+                <li><a href="/admin/adcust">
+                        <i class="fa-solid fa-user icons"></i>Customers</a></li>
+                <li><a href="/admin/addest">
+                        <i class="fa-solid fa-plane-departure icons"></i>Destinations</a></li>
+                <li><a href="#">
+                        <i class="fa-solid fa-plane-departure icons"></i>Destination_place</a></li>
+                <li><a href="/admin/adtour">
+                        <i class="fa-solid fa-truck-plane icons"></i>Tours</a></li>
+                <li><a href="#">
+                        <i class="fa-solid fa-gears icons"></i>Settings</a></li>
+                <li><a href="/admin/logout">
+                        <i class="fa-solid fa-right-from-bracket icons"></i>Logout</a></li>
+            </ul>
+        </aside>
+        <main class="content">
+            <h2>Admin Bookings</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Booking ID</th>
+                        <th>User ID</th>
+                        <th>Tour ID</th>
+                        <th>Destination ID</th>
+                        <th>Booking Date</th>
+                        <th>Status</th>
+                        <th>Guests</th>
+                        <th>Total Amount</th>
+                        <th>Created Date</th>
+                        <th>Updated Date</th>
+                        <th>Created By</th>
+                        <th>Updated By</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>BK001</td>
+                        <td>101</td>
+                        <td>TR001</td>
+                        <td>DEST001</td>
+                        <td>2025-02-25 14:00:00</td>
+                        <td class="status-pending">PENDING</td>
+                        <td>2</td>
+                        <td>$500.00</td>
+                        <td>2025-02-24 10:00:00</td>
+                        <td>2025-02-24 10:30:00</td>
+                        <td>Admin</td>
+                        <td>Admin</td>
+                    </tr>
+                    <tr>
+                        <td>BK002</td>
+                        <td>102</td>
+                        <td>TR002</td>
+                        <td>DEST002</td>
+                        <td>2025-02-26 16:00:00</td>
+                        <td class="status-confirmed">CONFIRMED</td>
+                        <td>4</td>
+                        <td>$1000.00</td>
+                        <td>2025-02-24 11:00:00</td>
+                        <td>2025-02-24 11:45:00</td>
+                        <td>Admin</td>
+                        <td>Admin</td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+</body>
+
+</html>
