@@ -17,17 +17,17 @@ public class RegistrationController {
     @Autowired
     private UserRepository userRepository;
 
-     @GetMapping("/registrationplp")
-     String fragmentRegistrationplp() {
-        return "registrationplp";
+     @GetMapping("/customer/registration")
+     String registration() {
+        return "/customer/registration";
     }
 
 
 
-@PostMapping("/registrationplp")
-public String registrationPlp(@ModelAttribute User user){
+@PostMapping("/customer/registration")
+public String registration(@ModelAttribute User user){
     userRepository.save(user);
-    return "redirect:/login";
+    return "redirect:/customer/login";
 }
 }
 

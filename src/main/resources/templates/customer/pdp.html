@@ -11,7 +11,7 @@
         <nav class="navbar">
             <div class="logo">Journey Ginnie</div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
+                <li><a href="/customer/home">Home</a></li>
                 <li><a href="#trips">Trips</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -22,15 +22,15 @@
             <img src="https://wallpaper.dog/large/10909872.jpg" alt="Trip Image">
         </div>
         <div class="trip-info">
-            <h1>Explore the Beauty of Bali</h1>
-            <p class="price">$999 per person</p>
-            <p class="description">Experience the breathtaking views of Bali with our exclusive 7-day package. Enjoy luxury stays, guided tours, and adventure activities.</p>
+            <h1 data-th-text="${destination_place.placeDescription}"></h1>
+            <!-- <p class="price" data-th-text="|&#8377; ${destination_place.price} per person|"></p> -->
+            <h4 data-th-text="${destination_place.placeName}"></h4>
             <button class="book-now">Book Now</button>
         </div>
     </section>
     
     <footer class="footer">
-        <p>&copy; 2025 Journey Ginnie. All rights reserved.</p>
+    <p>&copy; 2025 Journey Ginnie. All rights reserved.</p>
     </footer>
 </body>
 </html>

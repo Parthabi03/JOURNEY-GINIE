@@ -17,34 +17,41 @@
     <nav class="flex flex-between">
       <h1>JOURNEY-GINIE</h1>
       <ul class="flex">
-        <li><a href="/destination/home">Destinations</a></li>
+        <li><a href="/customer/destination">Destinations</a></li>
         <li><a href="#">Experiences</a></li>
-        <li><a href="/login">Login</a></li>
+        <li><a href="/customer/login">Login</a></li>
       </ul>
     </nav>
     <div class="video">
-      <video src="/video/tour.mp4" autoplay muted loop></video>
+      <video src="/video/travel.mp4" autoplay muted loop></video>
     </div>
     <div class="overlay">
       <div>
         <h1>Explore Incredible World</h1>
         <p>ADVENTURE | NATURE | WILDLIFE | HOLIDAYS | SPIRITUAL</p>
+        <div class="header">
+          <input type="text" placeholder="Search..." class="search-input">
+        </div>
       </div>
     </div>
   </header>
-
+  
   <section class="destinations">
     <h2 class="title">DESTINATIONS</h2>
+    <div class="destination-slider">
     <div class="destination-grid flex pl-1">
       <div class="destination" data-th-each="destination : ${destinations}">
-        <a data-th-href="|/destination/destination/destinationplp?destination=${destination.destinationId}|">
+        <a data-th-href="|/customer/destination/destination?destination=${destination.destinationId}|">
           <div class="destination-image">
-            <img src="/img/hp.jpg" alt="London">
-            <h4 class="img-name">LONDON</h4>
+            <img src="/img/hp.jpg" alt="">
+            <h4 class="img-name"></h4>
           </div>
         </a>
-        <div class="img-name" data-th-text="${destination.destinationName}">Destination Name</div>
+        <div class="img-name" data-th-text="${destination.destinationName}"></div>
       </div>
+    </div>
+      <button class="slider-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+      <button class="slider-btn next" onclick="moveSlide(1)">&#10095;</button>
       <!-- <div class="destination">
         <img src="/img/dl.jpg" alt="America">
         <h4 class="img-name">AMERICA</h4>
@@ -59,6 +66,7 @@
       </div>-->
     </div>
   </section>
+  <script src="/script/home.js"></script>
 
   <section class="attraction">
     <h2 class="title">ATTRACTIONS</h2>

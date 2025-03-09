@@ -21,16 +21,16 @@ public class Destination extends Auditable {
     // @JoinColumn(name = "user_id",referencedColumnName = "user_id", nullable = false)
     // private User user;
 
-    @Column(name = "destination_name", nullable = false, length = 100)
+    @Column(name = "destination_name", length = 100)
     private String destinationName;
 
     @Column(name = "destination_description", columnDefinition = "TEXT")
     private String destinationDescription;
 
-    @Column(name = "country", nullable = false, length = 100)
+    @Column(name = "country",  length = 100)
     private String country;
 
-    @Column(name = "city", nullable = false, length = 100)
+    @Column(name = "city", length = 100)
     private String city;
 
     @Column(name = "image_url", length = 255)
@@ -38,6 +38,9 @@ public class Destination extends Auditable {
 
     @OneToMany(mappedBy = "destination")
     private List<Booking> bookings;
+
+    @OneToMany(mappedBy = "destination")
+    private List<DestinationPlace> destinationPlaces;  
 
 }
 

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Customers</title>
+    <link rel="stylesheet" href="/style/adcust.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>JOURNEY-GINIE</h2>
+            <ul>
+                <li><a href="/admin/adhome">
+                        <i class="fa-solid fa-table-columns icons"></i>Dashboard</a></li>
+                <li><a href="/admin/adbook">
+                        <i class="fa-solid fa-receipt icons"></i>Bookings</a></li>
+                <li><a href="/admin/adcust">
+                        <i class="fa-solid fa-user icons"></i>Customers</a></li>
+                <li><a href="/admin/addest">
+                        <i class="fa-solid fa-plane-departure icons"></i>Destinations</a></li>
+                <li><a href="#">
+                        <i class="fa-solid fa-plane-departure icons"></i>Destination_place</a></li>
+                <li><a href="/admin/adtour">
+                        <i class="fa-solid fa-truck-plane icons"></i>Tours</a></li>
+                <li><a href="#">
+                        <i class="fa-solid fa-gears icons"></i>Settings</a></li>
+                <li><a href="/admin/logout">
+                        <i class="fa-solid fa-right-from-bracket icons"></i>Logout</a></li>
+            </ul>
+        </aside>
+        <main class="content">
+            <h2>Admin Customer Table</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Customer ID</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Created Date</th>
+                        <th>Updated Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>CUST001</td>
+                        <td>John Doe</td>
+                        <td>john.doe@example.com</td>
+                        <td>+1234567890</td>
+                        <td>123 Main St, New York, USA</td>
+                        <td>2025-02-20</td>
+                        <td>2025-02-25</td>
+                    </tr>
+                    <tr>
+                        <td>CUST002</td>
+                        <td>Jane Smith</td>
+                        <td>jane.smith@example.com</td>
+                        <td>+9876543210</td>
+                        <td>456 Elm St, Los Angeles, USA</td>
+                        <td>2025-02-22</td>
+                        <td>2025-02-26</td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+</body>
+
+</html>
