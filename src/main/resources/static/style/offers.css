@@ -9,7 +9,7 @@ body {
 
 /* Header */
 header {
-    background: #ff6600;
+    background: #110442;
     color: white;
     padding: 20px;
     font-size: 1.5em;
@@ -32,12 +32,12 @@ section {
 .flight-container, .discount-container, .destination-container, .package-container {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 40px;
     flex-wrap: wrap;
 }
 
 .flight, .discount, .destination, .package {
-    width: 250px;
+    width: 350px;
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s ease-in-out;

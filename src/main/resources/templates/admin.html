@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/style/admin.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Journey Ginnie</h2>
+        <ul>
+            <li><i class="fas fa-tachometer-alt"></i> Dashboard</li>
+            <li><i class="fas fa-map-marker-alt"></i> Destinations</li>
+            <li><i class="fas fa-book"></i> Bookings</li>
+            <li><i class="fas fa-credit-card"></i> Payments</li>
+            <li><i class="fas fa-star"></i> Reviews</li>
+            <li><i class="fas fa-cog"></i> Settings</li>
+            <li><i class="fas fa-sign-out-alt"></i> Logout</li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1>Admin Dashboard</h1>
+            <div class="admin-info">
+                <img src="https://static.vecteezy.com/system/resources/previews/043/900/708/non_2x/user-profile-icon-illustration-vector.jpg" alt="Admin Avatar">
+            </div>
+        </header>
+
+
+        <!-- <section class="dashboard">
+            <div class="card">
+                <h3>Total Destinations</h3>
+                <p>15</p>
+            </div>
+            <div class="card">
+                <h3>Total Bookings</h3>
+                <p>50</p>
+            </div>
+            <div class="card">
+                <h3>Pending Payments</h3>
+                <p>10</p>
+            </div>
+            <div class="card">
+                <h3>Total Reviews</h3>
+                <p>25</p>
+            </div>
+        </section> -->
+
+        <section class="destination-table">
+            <h2>Destinations</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Destination Name</th>
+                        <th>Description</th>
+                        <th>Country</th>
+                        <th>City</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Paris</td>
+                        <td>The city of lights and love.</td>
+                        <td>France</td>
+                        <td>Paris</td>
+                        <td><img src="https://via.placeholder.com/100" alt="Paris"></td>
+                    </tr>
+                    <tr>
+                        <td>Bali</td>
+                        <td>Tropical paradise with beaches.</td>
+                        <td>Indonesia</td>
+                        <td>Denpasar</td>
+                        <td><img src="https://via.placeholder.com/100" alt="Bali"></td>
+                    </tr>
+                    <tr>
+                        <td>New York</td>
+                        <td>The city that never sleeps.</td>
+                        <td>USA</td>
+                        <td>New York</td>
+                        <td><img src="https://via.placeholder.com/100" alt="New York"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+</html>

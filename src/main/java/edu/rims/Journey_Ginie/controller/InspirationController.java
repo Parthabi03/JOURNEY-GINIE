@@ -4,10 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class TourController {
+public class InspirationController {
 
-    @GetMapping("/tour")
-    String fragmentTour(){
-        return"/tour";
+    @GetMapping("/inspiration")
+    String fragmentInspiration(){
+        return"/inspiration";
     }
 }
