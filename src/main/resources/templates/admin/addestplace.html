@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Destination Places</title>
+    <link rel="stylesheet" href="/style/addestplace.css">
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Destination Places</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Place ID</th>
+                    <th>Destination ID</th>
+                    <th>Place Name</th>
+                    <th>Description</th>
+                    <th>Image</th>
+                    <th>Created Date</th>
+                    <th>Updated Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>101</td>
+                    <td>Beautiful Beach</td>
+                    <td>A scenic beach with clear water.</td>
+                    <td><img src="beach.jpg" alt="Beach"></td>
+                    <td>2025-03-07</td>
+                    <td>2025-03-07</td>
+                    <td>
+                        <button>Edit</button>
+                        <button>Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Add New Destination Place</h2>
+        <form>
+            <label>Place ID: <input type="text" name="place_id" required></label>
+            <label>Destination ID: <input type="text" name="destination_id" required></label>
+            <label>Place Name: <input type="text" name="place_name" required></label>
+            <label>Description: <textarea name="place_description"></textarea></label>
+            <label>Image: <input type="file" name="image_file" accept="image/*" required></label>
+            <button type="submit">Add Place</button>
+        </form>
+    </div>
+</body>
+</html>

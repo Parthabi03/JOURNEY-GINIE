@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Journey-Ginie Admin Dashboard</title>
+  <link rel="stylesheet" href="/style/adhome.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h1 class="logo">JOURNEY-GINIE</h1>
+      <nav class="nav-menu">
+        <a href="/admin/adhome" class="nav-item">
+          <i class="fa-solid fa-table-columns icons"></i>Dashboard</a>
+        <a href="/admin/adbook" class="nav-item">
+          <i class="fa-solid fa-receipt icons"></i>Bookings</a>
+        <a href="/admin/adcust" class="nav-item">
+          <i class="fa-solid fa-user icons"></i>
+          Customers</a>
+        <a href="/admin/addest" class="nav-item">
+          <i class="fa-solid fa-plane-departure icons"></i>
+          Destinations
+          <a href="/admin/adbook">
+            <i class="fa-solid fa-receipt icons"></i>Bookings</a>
+        </a>
+        <a href="/admin/adtour" class="nav-item">
+          <i class="fa-solid fa-truck-plane icons"></i>Tours</a>
+        <a href="#" class="nav-item">
+          <i class="fa-solid fa-gears icons"></i>Settings</a>
+        <a href="/admin/logout" class="nav-item">
+          <i class="fa-solid fa-right-from-bracket icons"></i>Logout</a>
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header -->
+      <div class="header">
+        <input type="text" placeholder="Search..." class="search-input">
+        <div class="user-profile">
+          <div class="profile-pic"></div>
+        </div>
+      </div>
+
+      <!-- Summary Cards -->
+      <div class="summary-cards">
+        <div class="card">
+          <h2 class="card-title">Total Bookings</h2>
+          <p class="card-value">4520</p>
+        </div>
+        <div class="card">
+          <h2 class="card-title">Completed Trips</h2>
+          <p class="card-value">3890</p>
+        </div>
+        <div class="card">
+          <h2 class="card-title">Upcoming Trips</h2>
+          <p class="card-value">620</p>
+        </div>
+        <div class="card">
+          <h2 class="card-title">Pending Bookings</h2>
+          <p class="card-value">210</p>
+        </div>
+        <div class="card">
+          <h2 class="card-title">Cancelled Trips</h2>
+          <p class="card-value">150</p>
+        </div>
+      </div>
+
+      <div id="destinationModal" class="modal">
+        <div class="modal-content">
+          <!-- <span class="close-btn" onclick="closeModal()">&times;</span> -->
+          <h2>Add New Destination</h2>
+          <!-- Destination Table -->
+          <table>
+            <thead>
+              <tr>
+                <th>Destination Name</th>
+                <th>Description</th>
+                <th>Country</th>
+                <th>City</th>
+                <th>Image URL</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Paris</td>
+                <td>The city of lights, known for the Eiffel Tower.</td>
+                <td>France</td>
+                <td>Paris</td>
+                <td>https://example.com/paris.jpg</td>
+              </tr>
+              <tr>
+                <td>Tokyo</td>
+                <td>A bustling metropolis blending tradition and technology.</td>
+                <td>Japan</td>
+                <td>Tokyo</td>
+                <td>https://example.com/tokyo.jpg</td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- <form id="destinationForm" action="/customer/admin" method="GET">
+              <label for="destinationName">Destination Name:</label>
+              <input type="text" id="destinationName" name="destinationName" required>
+
+              <label for="destinationDescription">Description:</label>
+              <input type="text" id="destinationDescription" name="destinationDescription" required>
+
+              <label for="destinationStatus">Status:</label>
+              <select id="destinationStatus" name="destinationStatus">
+                  <option value="AVAILABLE">AVAILABLE</option>
+                  <option value="UNAVAILABLE">UNAVAILABLE</option>
+              </select>
+
+              <button type="submit" class="submit-btn">Save Destination</button>
+          </form> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Journey-Ginie Admin Dashboard</title>
+  <link rel="stylesheet" href="/style/adhome.css">
+</head>
+<body>
+  <div class="dashboard-container"> 
+    <!-- Sidebar -->
+<!-- <div class="sidebar">
+      <h1 class="logo">JOURNEY-GINIE</h1>
+      <nav class="nav-menu">
+        <a href="#" class="nav-item">Dashboard</a>
+        <a href="#" class="nav-item">Bookings</a>
+        <a href="#" class="nav-item">Customers</a>
+        <a href="/admin/addest" class="nav-item">Destinations</a>
+        <a href="#" class="nav-item">Tours</a>
+        <a href="#" class="nav-item">Settings</a>
+        <a href="#" class="nav-item">Logout</a>
+      </nav>
+    </div> -->
+
+<!-- Main Content -->
+<!-- <div class="main-content"> -->
+<!-- Header -->
+<!-- <div class="header">
+        <input type="text" placeholder="Search..." class="search-input">
+        <div class="user-profile">
+          <div class="profile-pic"></div>
+        </div>
+      </div> -->
+
+<!-- Destination Table -->
+<!-- <table>
+        <thead>
+          <tr>
+            <th>Destination Name</th>
+            <th>Description</th>
+            <th>Country</th>
+            <th>City</th>
+            <th>Image URL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Paris</td>
+            <td>The city of lights, known for the Eiffel Tower.</td>
+            <td>France</td>
+            <td>Paris</td>
+            <td>https://example.com/paris.jpg</td>
+          </tr>
+          <tr>
+            <td>Tokyo</td>
+            <td>A bustling metropolis blending tradition and technology.</td>
+            <td>Japan</td>
+            <td>Tokyo</td>
+            <td>https://example.com/tokyo.jpg</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html> --> -->
