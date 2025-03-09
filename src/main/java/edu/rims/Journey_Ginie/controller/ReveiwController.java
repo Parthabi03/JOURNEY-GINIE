@@ -4,10 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class AdminController {
+public class ReveiwController {
 
-    @GetMapping("/admin")
-    String fragmentAdmin(){
-        return"/admin";
+    @GetMapping("/reveiw")
+    String fragmentReveiw(){
+        return"/reveiw";
     }
 }

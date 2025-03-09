@@ -8,7 +8,7 @@ body {
 
 /* Main Content */
 .main-content {
-    padding: 20px;
+    padding: 30px;
 }
 
 /* Header */
@@ -16,10 +16,10 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #ffffff;
+    background: #b4e7fa;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 10px rgba(25, 22, 35, 0.1);
 }
 
 .user-info {
@@ -28,15 +28,15 @@ header {
 }
 
 .user-info img {
-    width: 45px;
-    height: 45px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
-    margin-left: 10px;
+    margin-left: 50px;
 }
 
 /* Wishlist Section */
 .wishlist-section {
-    background: #ffffff;
+    background: #adf0fc;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -54,8 +54,8 @@ header {
     align-items: center;
     background: #f9f9f9;
     padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 15px;
+    border-radius: 10px;
+    margin-bottom: 25px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
