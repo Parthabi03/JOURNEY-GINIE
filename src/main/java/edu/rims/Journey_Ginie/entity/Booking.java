@@ -1,50 +1,59 @@
 package edu.rims.Journey_Ginie.entity;
 
-import java.time.LocalDateTime;
-import java.util.List;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
-import edu.rims.Journey_Ginie.constant.BookingStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-
-@Getter
-@Setter
 @Entity
 @Table(name = "booking")
+@Getter
+@Setter
 public class Booking extends Auditable {
 
     @Id
-    @Column(name = "booking_id", nullable = false)
-    private String bookingId;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "booking_id", length = 255, nullable = false, updatable = false)
+    private String id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "destination_id", referencedColumnName = "destination_id", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "destination_id", nullable = true)
     private Destination destination;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "tour_id", referencedColumnName = "tour_id", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "tour_id", nullable = true)
     private Tour tour;
 
-    @Column(name = "booking_date", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private LocalDateTime bookingDate;
+    @Column(name = "booking_date", nullable = false)
+    private LocalDate bookingDate;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "booking_status", nullable = false)
-    private BookingStatus bookingStatus = BookingStatus.PENDING;
+    @Column(name = "total_price", nullable = false)
+    private Double totalPrice;
 
-    @Column(name = "number_of_guests", nullable = false)
-    private int numberOfGuests;
+    @Column(name = "status", length = 50, nullable = false)
+    private String status; // e.g., "CONFIRMED", "PENDING", "CANCELED"
 
-    @Column(name = "total_amount", nullable = false)
-    private double totalAmount;
+    // Constructor
+    public Booking() {
+        this.bookingDate = LocalDate.now(); // Default to current date
+    }
 
-    @OneToMany(mappedBy = "booking")
-    private List<Payment> payments;
+    // Helper methods to set booking for a destination or tour
+    public void bookDestination(Destination destination) {
+        this.destination = destination;
+        this.tour = null;
+        this.totalPrice = destination.getPrice();
+    }
+
+    public void bookTour(Tour tour) {
+        this.tour = tour;
+        this.destination = null;
+        this.totalPrice = tour.getPrice();
+    }
 }
-

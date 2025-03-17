@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/style/admin-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script src="/script/admin.js"></script>
+</head>
+
+<body>
+
+    <div class="admin-container">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <h2><i class="fas fa-globe"></i> JOURNEY-GINIE</h2>
+            <ul>
+                <li><a href="/admin/dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="/admin/attractions"><i class="fas fa-tachometer-alt"></i> Attraction</a></li>
+                <li><a href="/admin/destinations"><i class="fas fa-map-marker-alt"></i> Destinations</a></li>
+                <li><a href="/admin/bookings"><i class="fas fa-calendar-check"></i> Bookings</a></li>
+                <li><a href="/admin/tours"><i class="fas fa-suitcase-rolling"></i> Tours</a></li>
+                <li><a href="/admin/customers"><i class="fas fa-users"></i> Customers</a></li>
+                <li><a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <h1 id="page-title">Admin Panel</h1>
+            </header>
+
+            <!-- Page Content -->
+            <section class="content">
+                <div class="content-header">
+                    <h2><i class="fas fa-table"></i> Page Title</h2>
+                    <button class="add-btn"><i class="fas fa-plus"></i> Add New</button>
+                </div>
+
+                <!-- Data Table -->
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Sample Item</td>
+                            <td>
+                                <button class="edit-btn"><i class="fas fa-edit"></i> Edit</button>
+                                <button class="delete-btn"><i class="fas fa-trash-alt"></i> Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+
+    <!-- fragment/modal.html -->
+    <div th:fragment="modal(title, content)" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 th:text="${title}"></h2>
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <th:block th:replace="${content}" />
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

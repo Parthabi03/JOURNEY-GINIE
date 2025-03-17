@@ -103,11 +103,12 @@ header nav ul a {
   }
   
 .destination {
+    flex: 0 0 25%;
     text-align: center;
     height: 300px;
     width: 75%;
     border-radius: 60px;
-    transition: 0.5s;
+    transition: transform 0.5s ease-in-out;
 }
 
 .destination img {
@@ -118,6 +119,13 @@ header nav ul a {
     display: flex;
 }
 
+.destination-grid {
+    display: flex;
+    transition: transform 5s ease-in-out; 
+    gap: 10px;
+    width: 100%;
+   
+}
 /* .destination h4 {
     font-size: 30px;
 } */
@@ -151,6 +159,11 @@ header nav ul a {
   
   .prev { left: 10px; }
   .next { right: 10px; }
+
+
+.slider-btn:hover {
+    background-color: black;
+}
 
 .button-container {
     text-align: center;
@@ -236,7 +249,7 @@ button.discover-btn:active {
     background: rgb(27, 27, 27, .5);
     color: rgb(252, 247, 247);
     transition: .5s;
-
+    pointer-events: none;
     padding-inline: 0.5rem;
 
     display: grid;
@@ -434,7 +447,7 @@ button.booking-btn:active {
 }
 
 h3 {
-    color: #ff6347;
+    color: #fcfaf9;
     margin-bottom: 15px;
 }
 

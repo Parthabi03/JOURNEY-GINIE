@@ -1,0 +1,48 @@
+/* Form Styling */
+.destination-form {
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+/* Submit Button */
+.submit-btn {
+    background: rgb(44, 62, 80);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.submit-btn:hover {
+    background: rgb(30, 50, 70);
+}

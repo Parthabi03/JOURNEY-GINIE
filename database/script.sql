@@ -32,23 +32,30 @@ CREATE TABLE user (
     updated_by VARCHAR(50)
 );
 
-CREATE TABLE destination_place (
-    place_id VARCHAR(255) PRIMARY KEY,
-    destination_id VARCHAR(255) NOT NULL,
-    place_name VARCHAR(150) NOT NULL,
-    place_description TEXT NULL, 
-    image_url TEXT NULL,
+-- Attraction Table
+
+CREATE TABLE attraction (
+    attraction_id VARCHAR(255) PRIMARY KEY,
+    attraction_description TEXT NULL,
+    image_url VARCHAR(255) NOT NULL,
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    created_by VARCHAR(50),
+    updated_by VARCHAR(50)
+
+);
+
+CREATE TABLE attraction_plp (
+    plp_id VARCHAR(255) PRIMARY KEY,
+    plp_name VARCHAR(150) NOT NULL,
+    plp_description TEXT NULL,
+    image_url VARCHAR(2083) NOT NULL,
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     created_by VARCHAR(50),
     updated_by VARCHAR(50),
-    FOREIGN KEY (destination_id) REFERENCES destination(destination_id) ON DELETE CASCADE
-);
-
--- Attraction Table
-CREATE TABLE attractions (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    image_url VARCHAR(255) NOT NULL
+    FOREIGN KEY (attraction_id) REFERENCES attraction(attraction_id) ON DELETE SET NULL
+    
 );
 
 -- Tours Table
@@ -61,11 +68,28 @@ CREATE TABLE tour (
     tour_availability INT NOT NULL,
     tour_start_date DATE NOT NULL,
     tour_end_date DATE NOT NULL,
+    image_url VARCHAR(255),
+    user_id INT NOT NULL,
     creaed_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     created_by VARCHAR(255),
     updated_by VARCHAR(255)
 
+);
+
+CREATE TABLE tour_packages (
+    package_id VARCHAR(255) PRIMARY KEY,
+    package_title VARCHAR(200) NOT NULL,
+    package_description TEXT NULL,
+    package_destination VARCHAR(100) NOT NULL,
+    package_price DOUBLE NOT NULL,
+    package_availability INT NOT NULL,
+    package_start_date DATE NOT NULL,
+    package_end_date DATE NOT NULL,
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    created_by VARCHAR(255),
+    updated_by VARCHAR(255)
 );
 
 CREATE TABLE booking (

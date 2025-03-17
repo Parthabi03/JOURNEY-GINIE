@@ -6,8 +6,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class BookingController {
 
-    @GetMapping("/booking")
+    @GetMapping("/customer/booking")
     String fragmentBooking(){
-        return"/booking";
+        return"customer/booking";
+    }
+
+    @GetMapping("/customer/success")
+    String fragmentSuccess(){
+        return"customer/success";
     }
 }

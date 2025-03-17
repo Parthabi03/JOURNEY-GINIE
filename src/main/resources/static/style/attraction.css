@@ -6,11 +6,13 @@ body {
   text-align: center;
 }
 
-.transparent-header {
-  background: rgba(255, 255, 255, 0.5);
-  padding: 20px;
-  font-size: 24px;
-  font-weight: bold;
+/* navbar.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 15px 20px;
   position: fixed;
   width: 100%;
   top: 0;
@@ -18,11 +20,56 @@ body {
   z-index: 1000;
 }
 
+.navbar .logo {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li {
+  display: inline;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #f4a261;
+}
+
+/* header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: #333;
+  color: white;
+  padding: 15px 0;
+  z-index: 1000;
+} */
+
+h1.transparent-header {
+
+  margin-top: 100px;
+  text-align: center;
+  font-size: 3rem;
+}
+
 .attractions {
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
-  padding: 100px 20px 20px;
+  padding: 30px;
 }
 
 .attraction-card {

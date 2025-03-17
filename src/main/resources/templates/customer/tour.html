@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Special Offers & Tour Planning - Travel Paradise</title>
+  <link rel="stylesheet" href="/style/tour.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <nav class="flex flex-between">
+        <h1>JOURNEY-GINIE</h1>
+        <ul class="flex">
+          <li><a href="/customer/destination">Details</a></li>
+          <li><a href="#">Experiences</a></li>
+          <li><a href="/customer/login">Login</a></li>
+        </ul>
+      </nav>
+      <div class="photo">
+        <img src="/img/home4.jpg"></img>
+      </div>
+      <div class="overlay">
+        <div>
+          <h1>Special Offers & Tour Planning</h1>
+          <p>Explore the best tour packages and exclusive offers for your next vacation!</p>
+          <div class="header">
+            <input type="text" placeholder="Search..." class="search-input">
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Offers Section -->
+    <h2>Our Popular Tours</h2>
+    <section class="offers">
+      <div class="offer-cards" data-th-each="tour : ${tours}">
+
+        <div class="offer-card">
+          <a data-th-href="|/customer/tour/tour/pdp?tour = ${tour.id}|" style="all: unset;">
+          <img
+            src="https://captainkimo.com/wp-content/uploads/2014/09/Beautiful-Wave-Ocean-Reef-Park-Singer-Island-Florida.jpg"
+            alt="Beach Escape">
+          <h3 data-th-text="${tour.title}"></h3>
+          <p data-th-text="${tour.description}"></p>
+            <button class="offer-btn">View Details</button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tour Planning Section -->
+    <section class="tour-planning">
+      <h2>Plan Your Perfect Tour</h2>
+      <form action="plan-tour-success.html" method="POST">
+        <div class="form-group">
+          <label for="destination">Select Destination</label>
+          <select id="destination" name="destination" required>
+            <option value="bali">Bali</option>
+            <option value="paris">Paris</option>
+            <option value="tokyo">Tokyo</option>
+            <option value="new-york">New York</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="tour-duration">Select Tour Duration</label>
+          <select id="tour-duration" name="tour-duration" required>
+            <option value="3">3 Days</option>
+            <option value="5">5 Days</option>
+            <option value="7">7 Days</option>
+            <option value="10">10 Days</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="travel-date">Preferred Travel Date</label>
+          <input type="date" id="travel-date" name="travel-date" required>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-info">Contact Information</label>
+          <input type="text" id="contact-info" name="contact-info" placeholder="Your name or email" required>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Plan</button>
+      </form>
+    </section>
+
+    <section class="ftr"
+      style="background-image: url('/img/ft.jpg'); background-size: cover; background-position: center;">
+      <footer>
+        <div class="footer-container">
+          <div class="footer-section">
+            <h3>Follow us</h3>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-x-twitter"></i> </a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h3><b>Quick links</b></h3>
+            <ul>
+              <li><a href="#"><b>Attractions</b></a></li>
+              <li><a href="#"><b>Experiences</b></a></li>
+              <li><a href="#"><b>Festivals and Events</b></a></li>
+              <li><a href="#"><b>FAQs</b></a></li>
+              <li><a href="#"><b>Journey-Ginie Content Hub</b></a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3><b>Newsletter</b></h3>
+            <p><b>Sign up for exciting news, events, and great travel ideas.</b></p>
+            <button class="newsletter">Subscribe now</button>
+          </div>
+          <!-- <div class="footer-section qr-section">
+        <h3><b>Scan to chat</b></h3>
+      <b><img src="https://via.placeholder.com/120" alt="QR Code"></b>
+      </div> -->
+        </div>
+        <div class="footer-links">
+          <a href="#"><b>Terms of Use</b></a>
+          <a href="#"><b>Privacy Policy</b></a>
+          <a href="#"><b>Contact Us</b></a>
+        </div>
+      </footer>
+    </section>
+
+</body>
+
+</html>

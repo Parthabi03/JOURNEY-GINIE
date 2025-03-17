@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragment/admin.common :: head}"></head>
+
+<body>
+  <link rel="stylesheet" href="/style/admin.dashboard.css">
+  <div class="admin-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" th:replace="~{fragment/admin.common :: .sidebar}"></aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Top Bar -->
+      <header class="top-bar" th:replace="~{fragment/admin.common :: .top-bar}"></header>
+
+      <!-- Page Content -->
+      <section class="content">
+        <div class="content-header">
+          <h2><i class="fas fa-chart-line"></i> Dashboard</h2>
+        </div>
+
+        <!-- Dashboard Stats -->
+        <div class="stats-container">
+          <div class="stats-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3 th:text="${destinationCount}">12</h3>
+            <p>Destinations</p>
+          </div>
+          <div class="stats-card">
+            <i class="fas fa-suitcase-rolling"></i>
+            <h3 th:text="${tourCount}">24</h3>
+            <p>Tours</p>
+          </div>
+          <div class="stats-card">
+            <i class="fas fa-calendar-check"></i>
+            <h3 th:text="${bookingCount}">105</h3>
+            <p>Bookings</p>
+          </div>
+          <div class="stats-card">
+            <i class="fas fa-user-friends"></i>
+            <h3 th:text="${customerCount}">86</h3>
+            <p>Customers</p>
+          </div>
+        </div>
+
+        <!-- Last 5 Bookings & Top 5 Visited Places -->
+        <div class="dashboard-content">
+
+          <!-- Last 5 Bookings -->
+          <div class="last-bookings">
+            <h3><i class="fas fa-history"></i> Last 5 Bookings</h3>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Customer</th>
+                  <th>Destination</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="booking : ${lastFiveBookings}">
+                  <td th:text="${booking.id}"></td>
+                  <td th:text="${booking.customerName}"></td>
+                  <td th:text="${booking.destinationName}"></td>
+                  <td th:text="${booking.date}"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Top 5 Visited Places -->
+          <div class="top-visited">
+            <h3><i class="fas fa-star"></i> Top 5 Visited Places</h3>
+            <ul>
+              <li th:each="place : ${topVisitedPlaces}" th:text="${place.name}"></li>
+            </ul>
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+  </div>
+
+</body>
+
+</html>

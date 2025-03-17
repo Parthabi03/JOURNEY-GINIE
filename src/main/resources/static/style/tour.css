@@ -9,72 +9,140 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f6fa;
-    color: #333;
+    color: #393838;
 }
 
-/* Container for the page */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
+/* Flex container for navbar */
+nav {
+    display: flex;
+    justify-content: space-between; /* Aligns items to left & right */
+    align-items: center;
+    padding: 15px 50px; /* Adjust padding as needed */
+    background-color: rgba(29, 238, 245, 0.785);
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+/* Style for the title (JOURNEY-GINIE) */
+nav h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: rgb(254, 254, 254);
+}
+
+/* Flex container for the navigation links */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px; /* Space between items */
+}
+
+/* Style for navigation links */
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.photo {
+    z-index: -1;
+    width: 100%;
+}
+
+.photo img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 600px;
+    background: rgba(0, 0, 0, 0.5); /* Adjust transparency */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(50, 48, 48);
+    text-align: center;
     padding: 20px;
 }
 
-/* Header section */
-header {
+.overlay h1 {
+    font-size: 50px;
+    color: #fafdfe;
+}
+
+.overlay p {
     text-align: center;
-    margin-bottom: 40px;
+    color: #f9fafb;
+    padding: 15px;
 }
 
-header h1 {
-    font-size: 36px;
-    color: #333;
-}
-
-header p {
-    font-size: 18px;
-    color: #666;
-}
+.search-input { 
+    display: flex;
+    margin-left: 230px;
+    width: 300px;
+    padding: 15px;
+    border-radius: 20px;
+    border: solid #f5f6f9; 
+    background-color: transparent;
+  }
 
 /* Offers Section */
 .offers {
+    padding: 2rem;
     margin-bottom: 50px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
 }
 
-.offers h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
+h2 {
+    font-size: 50px;
+    margin-top: 20px;
     text-align: center;
 }
 
 .offer-cards {
+    padding: 20px;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 20px; 
+    
 }
 
 .offer-card {
-    width: 30%;
     background-color: transparent;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    text-align: center;
-}
+    text-align: center; 
+    /* padding: 1rem; */
+} 
 
-.offer-card img {
+.offer-cards img {
     width: 100%;
     height: 320px;
     object-fit: cover;
+    display: flex;
 }
 
-.offer-card h3 {
+.offer-cards h3 {
     font-size: 22px;
     margin-top: 15px;
     color: #151515;
 }
 
-.offer-card p {
+.offer-cards p {
     font-size: 16px;
     color: #555;
     padding: 0 10px;
@@ -146,10 +214,126 @@ header p {
     background-color: #0056b3;
 }
 
-/* Footer styles */
-footer {
+.footer-links {
     text-align: center;
-    font-size: 14px;
-    color: #777;
-    padding-top: 30px;
+    padding-top: 10px;
 }
+
+.footer-links a {
+    color:white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    display: flex;
+    /* background-color: #1a1a1a; */
+    margin-top: 50px;
+    color:white;
+    height: 400px;
+    background-image: linear-gradient(to bottom, rgba(4, 74, 95, 0.5), rgba(146, 197, 212, 0.8)); 
+    /* display: block; */
+    /* width: 100%; */
+    /* margin-right: 20px;  */
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* max-width: 1200px;   */
+    margin: auto;
+}
+
+.footer-section {
+    flex: 1 1 30%;
+    margin: 20px;
+}
+
+footer h3 {
+    color: #ff6347;
+    margin-bottom: 15px;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer ul li a {
+    color:white;
+    text-decoration: none;
+    display: block;
+    padding: 5px 0;
+}
+
+footer ul li a:hover {
+    text-decoration: underline;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    color:white;
+    font-size: 24px;
+}
+
+.newsletter {
+    background-color: #ff6347;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.qr-section img {
+    width: 120px;
+    margin-top: 20px;
+}
+
+.footer-links {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.footer-links a {
+    padding: 10px;
+    color:white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.flex {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.flex-between {
+    justify-content: space-between;
+}
+
+.flex-center {
+    justify-content: center;
+}
+
+.pl-1 {
+    padding-inline: 1rem;
+}
+
+.gap-2 {
+    gap: 2rem;
+}
+
