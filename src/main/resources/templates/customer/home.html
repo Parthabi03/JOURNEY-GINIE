@@ -17,8 +17,10 @@
     <nav class="flex flex-between">
       <h1>JOURNEY-GINIE</h1>
       <ul class="flex">
-        <li><a href="/customer/destination">Destinations</a></li>
-        <li><a href="#">Experiences</a></li>
+        <li><a href="/customer/destination/destination?destination=6f435336-8f31-44d3-9d16-d343c0e708bc">Destinations</a></li>
+        <li><a href="/customer/tour/tour?tour=9f6987bc-35eb-499e-a8a7-255935daff10">Tours</a></li>
+        <li><a href="/review">Reviews</a></li>
+        <li><a href="/wishlist">Wishlist</a></li>
         <li><a href="/customer/login">Login</a></li>
       </ul>
     </nav>
@@ -35,21 +37,21 @@
       </div>
     </div>
   </header>
-  
+
   <section class="destinations">
     <h2 class="title">DESTINATIONS</h2>
     <div class="destination-slider">
-    <div class="destination-grid flex pl-1">
-      <div class="destination" data-th-each="destination : ${destinations}">
-        <a data-th-href="|/customer/destination/destination?destination=${destination.destinationId}|">
-          <div class="destination-image">
-            <img src="/img/hp.jpg" alt="">
-            <h4 class="img-name"></h4>
-          </div>
-        </a>
-        <div class="img-name" data-th-text="${destination.destinationName}"></div>
+      <div class="destination-grid flex pl-1">
+        <div class="destination" data-th-each="destination : ${destinations}">
+          <a data-th-href="|/customer/destination/destination?destination=${destination.destinationId}|">
+            <div class="destination-image">
+              <img data-th-src="|/destination/images/${destination.destinationId}|"  width="40"alt="">
+              <h4 class="img-name"></h4>
+            </div>
+          </a>
+          <div class="img-name" data-th-text="${destination.destinationName}"></div>
+        </div>
       </div>
-    </div>
       <button class="slider-btn prev" onclick="moveSlide(-1)">&#10094;</button>
       <button class="slider-btn next" onclick="moveSlide(1)">&#10095;</button>
       <!-- <div class="destination">
@@ -71,55 +73,68 @@
   <section class="attraction">
     <h2 class="title">ATTRACTIONS</h2>
     <div class="image-wrapper flex">
-      <div class="box"><img src="/img/us.jpg" alt="Attraction"></div>
-      <div class="box"><img src="/img/disney.jpg" alt="Disney"></div>
-      <div class="box"><img src="/img/home.jpg" alt="Home"></div>
+      <div class="box" data-th-each="attraction : ${attractions}">
+        <a data-th-href="|/customer/attraction/attraction?attraction=${attraction.attractionId}|">
+          <img data-th-src="|/attraction/images/${attraction.attractionId}|"  width="40"alt="">
+      </div>
+      </a>
+      <!-- <div class="box"><img src="/img/disney.jpg" alt="Disney"></div>
+      <div class="box"><img src="/img/home.jpg" alt="Home"></div> -->
     </div>
     <div class="button-container">
       <button class="discover-btn" onclick="alert('Discover more')">Discover More</button>
     </div>
+    </div>
   </section>
 
   <section class="itineraries">
-    <h2 class="title">ITINERARIES</h2>
+    <h2 class="title">POPULAR TOURS</h2>
     <div class="itinerary-grid flex flex-center gap-2">
-      <div class="itinerary">
-        <img src="/img/park.jpg" alt="Australia">
+      <div class="itinerary" data-th-each="tour : ${tours}">
+        <a data-th-href="|/customer/tour/tour?tour=${tour.id}|">
+          <div class="itinerary">
+            <img data-th-src="|/tour/images/${tour.id}|"  width="40"alt="">
+            <!-- <h4 class="img-name"></h4> -->
+          </div>
+        </a>
+        <!-- <img src="/img/tiger.jpg" alt="Australia"> -->
+        <!-- <div class="img-name" data-th-text="${tour.tourTitle}"></div> -->
         <div class="intro">
           <div>
-            <h3>AUSTRALIA</h3>
-            <p>Discover Australia's iconic attractions and fantastic things to do.</p>
+            <h3 data-th-text="${tour.title}"></h3>
+            <p data-th-text="${tour.description}"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="itinerary">
+        <img src="/img/adventure.jpg" alt="India">
+        <div class="intro">
+          <div>
+            <h3>ADVENTURE</h3>
+            <p>20+ adventure packages</p>
           </div>
         </div>
       </div>
       <div class="itinerary">
-        <img src="/img/rock.jpg" alt="India">
+        <img src="/img/couple.jpg" alt="Manali">
         <div class="intro">
           <div>
-            <h3>INDIA</h3>
-            <p>India, the seventh-largest country by area, rich in culture and history.</p>
+            <h3>HONEYMOON</h3>
+            <p>18+ honeymoon packages</p>
           </div>
         </div>
       </div>
       <div class="itinerary">
-        <img src="/img/ice.jpg" alt="Manali">
+        <img src="/img/freedom.jpg" alt="Ladakh">
         <div class="intro">
           <div>
-            <h3>MANALI</h3>
-            <p>A high-altitude Himalayan resort town known for its adventure sports.</p>
+            <h3>FREEDOM</h3>
+            <p>25+ freedom packages</p>
           </div>
         </div>
       </div>
-      <div class="itinerary">
-        <img src="/img/balloon.jpg" alt="Ladakh">
-        <div class="intro">
-          <div>
-            <h3>LADAKH</h3>
-            <p>Explore the mesmerizing landscapes and ancient monasteries.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    </div> -->
   </section>
 
   <section class="hope"

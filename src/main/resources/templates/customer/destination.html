@@ -21,24 +21,24 @@
     <h1 class="title">Top 10 Travel Destinations</h1>
     <div class="destinations-container">
 
-        <div class="destination-card" data-th-each="place : ${destination.destinationPlaces}">
+        <div class="destination-card" data-th-each="destination : ${destinations}">
             <img src="/img/bg.jpg" alt="">
             <div class="destination-info">
-                <h2 data-th-text="${place.placeName}">Bali, Indonesia</h2>
+                <h2  data-th-text="${destination.destinationName}"></h2>
                 <article class="destination">
-                    <a data-th-href="|/customer/destination_place/pdp?destination_place=${place.placeId}|"
+                 <a data-th-href="|/customer/destination/destination/pdp?destination=${destination.destinationId}|"
                         style="all: unset;">
-                        <p data-th-text="${place.placeDescription}">Explore beautiful beaches, temples, and tropical forests in Bali.</p>
-                        <!-- <h4 data-th-text="${place.placeName}"></h4> -->
-                        <!-- <p data-th-text="|&#8377; ${place.price}|"></p>  -->
+                        <p data-th-text="${destination.description}"></p>
+                        <h4 data-th-text="${destination.destinationName}"></h4>
+                        <p data-th-text="|&#8377; ${destination.price}|"></p> 
                         <div class="buttons">
                             <p class="place-price">&#8377;999</p>
-                            <button class="book-btn">Book Now</button>
+                            <button class="book-btn">View Details</button>
                         </div>
                     </a>
                 </article>
             </div>
-        </div>
+     </div>
 
 
         <!-- <div class="destination-card">

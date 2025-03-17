@@ -1,60 +1,59 @@
 package edu.rims.Journey_Ginie.entity;
 
-
-import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
+import edu.rims.Journey_Ginie.constant.Status;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
 
 @Entity
 @Table(name = "tour")
 @Getter
 @Setter
-
-
 public class Tour extends Auditable {
 
     @Id
-    @Column(name = "tour_id", length = 255)
-    private String tourId;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "tour_id", length = 255, nullable = false, updatable = false)
+    private String id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id",referencedColumnName = "user_id", nullable = false)
-    private User user;
+    @Column(name = "title", length = 200, nullable = false)
+    private String title;
 
-    @Column(name = "tour_title", length = 200, nullable = false)
-    private String tourTitle;
-
-    @Column(name = "tour_description", columnDefinition = "TEXT")
-    private String tourDescription;
-
-    @Column(name = "tour_destination", length = 100, nullable = false)
-    private String tourDestination;
+    @Column(name = "description", columnDefinition = "TEXT")
+    private String description;
 
     @Column(name = "price", nullable = false)
     private Double price;
 
-    @Column(name = "tour_availability", nullable = false)
-    private Integer tourAvailability;
+    @Column(name = "trip_duration", nullable = false)
+    private int tripDuration;
 
-    @Column(name = "tour_start_date", nullable = false)
-    @Temporal(TemporalType.DATE)
-    private Date tourStartDate;
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
-    @Column(name = "tour_end_date", nullable = false)
-    @Temporal(TemporalType.DATE)
-    private Date tourEndDate;
+    @Column(name = "image_url", length = 255)
+    private String imageUrl;
+
+    // Many-to-Many relationship between Tour and Destination
+    @ManyToMany
+    @JoinTable(name = "tour_destinations", joinColumns = @JoinColumn(name = "tour_id"), inverseJoinColumns = @JoinColumn(name = "destination_id"))
+    private List<Destination> destinations;
 
     @OneToMany(mappedBy = "tour")
     private List<Booking> bookings;
 
-    @OneToMany(mappedBy = "tour")
-    private List<Review> reviews;
+    // Add a destination to the tour
+    public void addDestination(Destination destination) {
+        if (destinations == null)
+            destinations = new ArrayList<>();
+        destinations.add(destination);
+    }
 
-    @OneToMany(mappedBy = "tour")
-    private List<Wishlist> wishlists;
+    // Remove a destination from the tour
+    public void removeDestination(Destination destination) {
+        destinations.remove(destination);
+    }
 }
-

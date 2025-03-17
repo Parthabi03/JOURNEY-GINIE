@@ -12,7 +12,7 @@ body {
 .payment-container {
     background: white;
     color: #004080;
-    padding: 20px;
+    padding: 40px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     width: 320px;
@@ -25,12 +25,15 @@ h2 {
 
 .input-group {
     margin-bottom: 10px;
-    text-align: left;
+    text-align: center;
+    margin-right: 10px;
 }
+
 
 label {
     font-size: 14px;
     font-weight: bold;
+    margin-right: 10px;
 }
 
 input {
@@ -39,11 +42,14 @@ input {
     border: 1px solid #004080;
     border-radius: 5px;
     font-size: 16px;
+
 }
+
 
 .row {
     display: flex;
     gap: 10px;
+    margin-right: 10px;
 }
 
 button {

@@ -8,7 +8,6 @@
 
 .navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 15px 25px;
     background-color: #5c8c95; 
@@ -39,9 +38,7 @@
   
 
 body {
-    background-image: linear-gradient(to bottom, rgba(214, 227, 238, 0.5), rgba(113, 168, 199, 0.68));    
-    /* text-align: center;  */
-    padding: 20px;
+background-color: #93c8caaf;
 }
 
 .title {

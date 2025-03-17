@@ -3,51 +3,63 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    text-align: center;
+    background: url('/img/book1.jpg');
+    background-size: cover;
+    text-align: center; 
 }
 
 /* Header Styles */
-header {
-    background-color: #007bff;
-    color: white;
-    padding: 20px;
-}
 
-nav ul {
-    list-style: none;
-    padding: 0;
-}
+    /* header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #007bff;
+        padding: 15px 20px;
+        color: white;
+    }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
+    h1 {
+        margin: 0;
+    }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        margin: 0;
+        padding: 0;
+    }
 
+    nav ul li {
+        display: inline;
+    }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    } */
 /* Booking Form Styles */
 .booking-form {
-    background: white;
+    background: rgb(143, 175, 202);
     max-width: 400px;
     margin: 40px auto;
-    padding: 20px;
+    padding: 30px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .booking-form h2 {
     margin-bottom: 20px;
+    color: rgb(28, 70, 133);
 }
 
 .booking-form label {
     display: block;
     margin: 10px 0 5px;
     font-weight: bold;
+    color: rgb(8, 64, 129);
 }
 
 .booking-form input,
@@ -75,7 +87,7 @@ nav ul li a {
 
 /* Footer Styles */
 footer {
-    background-color: #222;
+    background-color: #2b4ec3;
     color: white;
     padding: 10px;
     margin-top: 20px;

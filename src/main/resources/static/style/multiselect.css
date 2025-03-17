@@ -1,0 +1,68 @@
+.multiselect-container {
+    width: 100%;
+    position: relative;
+}
+
+.select-box {
+    border: 1px solid #ccc;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.selected-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.tag {
+    background: #3498db;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.tag .remove {
+    margin-left: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.options-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    display: none;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 10;
+}
+
+.option {
+    padding: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.option input {
+    margin-right: 8px;
+}
+
+.option:hover {
+    background: #f0f0f0;
+}
+
+.show {
+    display: block;
+}

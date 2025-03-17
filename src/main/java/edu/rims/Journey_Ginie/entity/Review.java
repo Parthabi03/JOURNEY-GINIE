@@ -6,13 +6,11 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-
 @Getter
 @Setter
 @Entity
 @Table(name = "review")
 public class Review extends Auditable {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "review_id", nullable = false)
@@ -31,8 +29,4 @@ public class Review extends Auditable {
 
     @Column(name = "review_comment", columnDefinition = "TEXT")
     private String reviewComment;
-
-    @Column(name = "review_date", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private LocalDateTime reviewDate;
 }
-

@@ -1,59 +1,48 @@
 package edu.rims.Journey_Ginie.entity;
 
-
 import java.util.List;
 
+import edu.rims.Journey_Ginie.constant.UserRole;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 @Getter
 @Setter
-
 public class User extends Auditable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    private Long userId;
+    private Long id;
 
-    @Column(name = "user_name",  length = 100)
-    private String userName;
+    @Column(name = "name", length = 100)
+    private String name;
 
-    @Column(name = "user_email",  unique = true, length = 150)
-    private String userEmail;
+    @Column(name = "email", unique = true, length = 150)
+    private String email;
 
-    @Column(name = "user_phone_number", length = 20)
-    private String userPhoneNumber;
+    @Column(name = "phone_number", length = 20)
+    private String phoneNumber;
 
-    @Column(name = "user_password",  length = 255)
-    private String userPassword;
+    @Column(name = "password", length = 255)
+    private String password;
 
-    @Column(name = "user_adharcard",  length = 255)
-    private String userAdharcard;
+    @Column(name = "aadhar_card", length = 255, unique = true)
+    private String aadharCard;
 
-    @Column(name = "user_image_url", columnDefinition = "TEXT")
-    private String userImageUrl;
+    @Column(name = "image_url", columnDefinition = "TEXT")
+    private String imageUrl;
 
-    @Column(name = "user_gender")
-    private String userGender;
+    @Column(name = "gender", length = 10)
+    private String gender;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role", length = 10)
+    private UserRole role;
 
     @OneToMany(mappedBy = "user")
     private List<Booking> bookings;
-
-    @OneToMany(mappedBy = "user")
-    private List<Review> reviews;
-
-    @OneToMany(mappedBy = "user")
-    private List<Wishlist> wishlists;
-
-    // @OneToMany(mappedBy = "user")
-    // private List<Destination> destinations;
-
-    @OneToMany(mappedBy = "user")
-    private List<Tour> tours;
-    
-    
 }
