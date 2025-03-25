@@ -5,22 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tour Package - Destination Name</title>
     <link rel="stylesheet" href="/style/pdp2.css">
-    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+   
 </head>
 <body>
     <header class="header">
         <h1>JOURNEY-GINIE</h1>
     </header>
     
-    <main class="pdp-container">
-        <section class="tour-details">
-            <img src="destination1.jpg" alt="Beautiful Bali Escape" class="tour-image">
-            <h2>Beautiful Bali Escape</h2>
-            <p><i class="fas fa-map-marker-alt"></i> Bali, Indonesia</p>
+    <div data-th-if="${package != null}" class="pdp-container">
+            <img data-th-src="|/admin/packages/images/${package.id}|" width="200">
+            <!-- Tour Name -->
+            <h1 data-th-text="${package.name}"></h1>
+    
+            <!-- Tour Description -->
+            <p><i class="fas fa-map-marker-alt"></i> <span data-th-text="${package.description}"></span></p>
+    
+            <!-- Duration -->
             <p><i class="fas fa-clock"></i> 7 Days / 6 Nights</p>
-            <p class="price">$999 per person</p>
-            <button class="book-now">Book Now</button>
+    
+            <!-- Price -->
+            <p class="price" data-th-text="|&#8377; ${package.price} per person|"></p>
+    
+            <!-- Book Now Button -->
+            <a href="/customer/booking">
+                <button class="book-now">Book Now</button>
+                </a>
         </section>
-    </main>
+    </div>
+    
+    <!-- <div data-th-if="${tour != null}">
+        <section class="tour-details">
+            <img img data-th-src="@{/tour/images/{id}(id=${tour.id})}" height = "40" alt="">
+            <h1 data-th-text="${tour.name}"></h2>
+            <p><i class="fas fa-map-marker-alt" data-th-text="${tour.description}"></i> </p>
+            <p><i class="fas fa-clock"></i> 7 Days / 6 Nights</p> -->
+            <!-- <h4 data-th-text="${tour.description}"></h4> -->
+            <!-- <p class="price" data-th-text="|&#8377; ${tour.price} per person|"></p>
+            <button class="book-now">Book Now</button>
+        </section>  -->
+
+        <!-- <div data-th-if="${tour != null}">
+            <section class="trip-details">
+                <div class="trip-image">
+                    <img src="https://wallpaper.dog/large/10909872.jpg" alt="Trip Image">
+                </div>
+                <div class="trip-info">
+                    <h1 data-th-text="${tour.name}"></h1> -->
+                    <!-- <p class="price" data-th-text="|&#8377; ${destination_place.price} per person|"></p> -->
+                    <!-- <h4 data-th-text="${tour.description}"></h4>
+                    <a class="book-now">Book Now</a>
+                </div>
+            </section>
+        </div> -->
+
 </body>
 </html>

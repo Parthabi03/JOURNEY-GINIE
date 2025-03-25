@@ -44,16 +44,22 @@ body {
 
 .trip-info {
     max-width: 500px;
+    color: rgb(3, 62, 130);
+}
+.trip-info h4 {
+    font-size: 30px; 
+    font-weight: bold; 
+    color: #055c5fe2;
 }
 
 .price {
     font-size: 24px;
-    color: green;
+    color: rgba(9, 12, 9, 0.815);
     font-weight: bold;
 }
 
 .book-now {
-    background-color: #ff5733;
+    background-color: #e04afe;
     color: white;
     padding: 10px 20px;
     border: none;

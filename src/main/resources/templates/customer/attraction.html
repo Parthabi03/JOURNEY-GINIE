@@ -23,7 +23,7 @@
     
     <section class="attractions">
         <div class="attraction-card"  data-th-each="attraction : ${attractions}">
-            <img src="https://images.pexels.com/photos/1194233/pexels-photo-1194233.jpeg?cs=srgb&dl=group-people-hiking-on-hill-1194233.jpg&fm=jpg" alt="Hiking" loading="lazy">
+            <img data-th-src="|/attraction/images/${attraction.attractionId}|" width="40" alt="">
             <h2 data-th-text="${attraction.attractionName}"></h2>
             <p data-th-text="${attraction.attractionDescription}"></p>
         </div>

@@ -1,6 +1,6 @@
 package edu.rims.Journey_Ginie.entity;
 
-import java.time.LocalDateTime;
+// import java.time.LocalDateTime;
 
 import jakarta.persistence.*;
 import lombok.Getter;

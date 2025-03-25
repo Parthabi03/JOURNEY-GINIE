@@ -22,17 +22,18 @@
     <div class="destinations-container">
 
         <div class="destination-card" data-th-each="destination : ${destinations}">
-            <img src="/img/bg.jpg" alt="">
+            <img data-th-src="|/destination/images/${destination.destinationId}|"  width="40"alt="">
             <div class="destination-info">
                 <h2  data-th-text="${destination.destinationName}"></h2>
                 <article class="destination">
-                 <a data-th-href="|/customer/destination/destination/pdp?destination=${destination.destinationId}|"
+                 <a data-th-href="|/customer/destination/pdp?destination=${destination.destinationId}|"
                         style="all: unset;">
                         <p data-th-text="${destination.description}"></p>
-                        <h4 data-th-text="${destination.destinationName}"></h4>
-                        <p data-th-text="|&#8377; ${destination.price}|"></p> 
+                        <!-- <h4 data-th-text="${destination.destinationName}"></h4> -->
+                        <!-- <p data-th-text="|&#8377; ${destination.price}|"></p>  -->
                         <div class="buttons">
-                            <p class="place-price">&#8377;999</p>
+                            <p data-th-text="|&#8377; ${destination.price}|"></p>
+                            <!-- <p class="place-price">&#8377;999</p> -->
                             <button class="book-btn">View Details</button>
                         </div>
                     </a>

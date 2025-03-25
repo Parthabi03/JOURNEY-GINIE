@@ -1,3 +1,51 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journey Ginnie - Login</title>
+    <link rel="stylesheet" href="/style/login.css">
+</head>
+
+<body>
+    <form class="form" method="post" action="/customer/login">
+        <div class="login-container">
+            <h2 class="title">Welcome to Journey Ginnie</h2>
+            <div class="input-group"> -->
+                <!-- <input type="text" id="email" name="name" required>  
+                <label for="username">Username</label> -->
+                 <!-- <input type="email" id="email" name="email" required>  
+                <label for="email">Email</label>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" name="password" required>  Add name="password" -->
+                <!-- <label for="password">Password</label>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+            <input type="hidden" name="_csrf" value="${_csrf.token}">  CSRF token (ensure it's rendered correctly) -->
+            <!-- <p class="signup-link">Don't have an account? <a href="/customer/registration">Register Now</a></p>
+        </div>
+    </form>
+     -->
+    <!-- <form class="form" method="post" action="/customer/login">
+    <div class="login-container">
+        <h2 class="title">Welcome to Journey Ginnie</h2>
+            <div class="input-group">
+                <input type="text" id="username" required>
+                <label for="username">Username</label>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" required>
+                <label for="password">Password</label>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+            <input type="hidden" name="_csrf" data-th-value="${_csrf.token}">
+            <p class="signup-link">Don't have an account? <a href="/customer/registration">Register Now</a></p>
+        </form> -->
+    <!-- </div>
+</body>
+</html> -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,20 +56,24 @@
 </head>
 
 <body>
-    <div class="login-container">
-        <h2 class="title">Welcome to Journey Ginnie</h2>
-        <form class="login-form">
+    <form class="form" method="post" action="/customer/login">
+        <div class="login-container">
+            <h2 class="title">Welcome to Journey Ginnie</h2>
             <div class="input-group">
-                <input type="text" id="username" required>
-                <label for="username">Username</label>
+                <input type="email" id="email" name="email" required>  
+                <label for="email">Email</label>
             </div>
             <div class="input-group">
-                <input type="password" id="password" required>
+                <input type="password" id="password" name="password" required>  
                 <label for="password">Password</label>
             </div>
             <button type="submit" class="login-btn">Login</button>
+            
+            <!-- CSRF Token - Ensure this is properly set up -->
+            <input type="hidden" name="_csrf" th:value="${_csrf.token}">  
+            
             <p class="signup-link">Don't have an account? <a href="/customer/registration">Register Now</a></p>
-        </form>
-    </div>
+        </div>
+    </form>
 </body>
 </html>

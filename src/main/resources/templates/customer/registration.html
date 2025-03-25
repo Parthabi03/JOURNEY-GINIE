@@ -15,19 +15,19 @@
         <form method="post" action="/customer/registration">
 
             <label>Full Name</label>
-            <input type="text" id="FullName" name="userName" placeholder="Full Name" required>
+            <input type="text" id="FullName" name="name" placeholder="Full Name" required>
 
             <label for="email">Email Address</label>
-            <input type="email" id="email" name="userEmail" placeholder="example@example.com" required>
+            <input type="email" id="email" name="email" placeholder="example@example.com" required>
 
             <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="userPhoneNumber" placeholder="(000) 000-0000" required>
+            <input type="tel" id="phone" name="phoneNumber" placeholder="(000) 000-0000" required>
 
             <label for="password">Password</label>
-            <input type="password" id="password" name="userPassword" placeholder="Enter Password" required>
+            <input type="password" id="password" name="password" placeholder="Enter Password" required>
 
             <label for="aadhar">Aadhar Number</label>
-            <input type="text" id="aadhar" name="userAdharcard" placeholder="XXXX-XXXX-XXXX" required>
+            <input type="text" id="aadhar" name="aadharCard" placeholder="XXXX-XXXX-XXXX" required>
 
             <div class="gender-group">
                 <label>Gender</label>
@@ -44,6 +44,8 @@
             </div>
             
             <button type="submit" class="submit-btn">Register</button>
+            <input type="hidden" name="_csrf" data-th-value="${_csrf.token}">
+
         </form>
     </div>
     </header>

@@ -33,12 +33,12 @@
               <th>Tour Id </th>
               <th>Tour Title</th>
               <th>Tour Description</th>
-              <!-- <th>Tour Destination</th> -->
+              <!-- <th>Place Name</th> -->
               <th>price</th>
               <th>image_url</th>
               <th>actions</th>
-              <!-- <th>availability </th>
-              <th>Start Date</th>
+              <!-- <th>availability </th>  -->
+              <!-- <th>Start Date</th>
               <th>End Date</th>
               <th>User Id</th> -->
             </tr>
@@ -49,13 +49,12 @@
               <td th:text="${tour.id}"></td>
               <td th:text="${tour.title}"></td>
               <td th:text="${tour.description}"></td>
-              <!-- <td th:text="${tour.destination}"></td> -->
+              <!-- <td th:text="${tour.name}"></td> -->
               <td th:text="${tour.price}"></td>
-              <!-- <td th:text="${tour.availability}"></td>
-              <td th:text="${tour.startDate}"></td>
-              <td th:text="${tour.endDate}"></td> -->
+    
               <td>
-                <img data-th-src="|/tour/images/${tour.id}|" width="40">
+                <!-- <img data-th-src="|/tour/images/${tour.id}|" width="40"> -->
+                <img th:src="@{/tours/images/{id}(id=${tour.id})}" width="40"> 
               </td>
               <td>
                 <a th:href="@{/admin/tours/edit/{id}(id=${tour.id})}" class="edit-btn">
@@ -90,8 +89,8 @@
       </div>
 
       <!-- <div class="form-group">
-        <label for="destination"><i class="fas fa-globe"></i> Destination</label>
-        <input type="text" id="destination" name="destination" required>
+        <label for="name"><i class="fas fa-globe"></i> Name</label>
+        <input type="text" id="name" name="name" required>
       </div> -->
 
       <div class="form-group">
@@ -104,10 +103,16 @@
         <input type="text" id="city" name="city" required>
       </div> -->
 
+      <!-- <div class="form-group">
+        <label for="image"><i class="fas fa-image"></i> Image (PNG, JPG)</label>
+        <input type="file" id="image" name="image" accept=".png, .jpg, .jpeg" required>
+      </div> -->
+
       <div class="form-group">
         <label for="image"><i class="fas fa-image"></i> Image (PNG, JPG)</label>
         <input type="file" id="image" name="image" accept=".png, .jpg, .jpeg" required>
       </div>
+
 
       <div class="multiselect-container">
         <div class="select-box" onclick="toggleDropdown()">
@@ -124,6 +129,7 @@
       </div>
 
       <div class="submit-container">
+        <input type="hidden" name="_csrf" data-th-value="${_csrf.token}">
         <button type="submit" class="submit-btn">
           <i class="fas fa-plus-circle"></i> SUBMIT
         </button>

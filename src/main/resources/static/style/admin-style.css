@@ -71,7 +71,7 @@ html {
     width: calc(100% - 250px);
     background-color: #01394f;
     color: white;
-    padding: 15px;
+    padding: 10px;
     text-align: center;
     font-size: 18px;
     font-weight: bold;
@@ -85,11 +85,11 @@ html {
 /* Page Content */
 .content {
     flex-grow: 1;
-    padding: 20px;
+    padding: 15px;
     margin-top: 50px;
     /* Push below top bar */
     overflow-y: auto;
-    height: calc(100vh - 50px);
+    height: calc(100vh - 100px);
 }
 
 /* Content Header */

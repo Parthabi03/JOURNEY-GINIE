@@ -6,6 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public record TourRequestDto(
     String title,
+    String name,
     String description,
     Double price,
     MultipartFile image,

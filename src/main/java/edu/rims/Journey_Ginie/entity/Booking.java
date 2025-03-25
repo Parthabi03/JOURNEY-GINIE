@@ -1,6 +1,5 @@
 package edu.rims.Journey_Ginie.entity;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import jakarta.persistence.*;
@@ -33,11 +32,11 @@ public class Booking extends Auditable {
     @Column(name = "booking_date", nullable = false)
     private LocalDate bookingDate;
 
-    @Column(name = "total_price", nullable = false)
+    @Column(name = "total_price")
     private Double totalPrice;
 
-    @Column(name = "status", length = 50, nullable = false)
-    private String status; // e.g., "CONFIRMED", "PENDING", "CANCELED"
+    @Column(name = "status", length = 50)
+    private String status; 
 
     // Constructor
     public Booking() {

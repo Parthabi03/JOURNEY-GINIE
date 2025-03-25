@@ -3,6 +3,8 @@ package edu.rims.Journey_Ginie.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import edu.rims.Journey_Ginie.constant.Status;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -45,11 +47,21 @@ public class Tour extends Auditable {
     @OneToMany(mappedBy = "tour")
     private List<Booking> bookings;
 
+    @OneToMany
+    private List<Packages> packages;
+
     // Add a destination to the tour
     public void addDestination(Destination destination) {
         if (destinations == null)
             destinations = new ArrayList<>();
         destinations.add(destination);
+    }
+
+    public void addPackage(Packages package1) {
+        if (packages == null){
+            packages = new ArrayList<>();
+        }
+        packages.add(package1);
     }
 
     // Remove a destination from the tour

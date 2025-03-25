@@ -11,6 +11,7 @@
     align-items: center;
     padding: 15px 25px;
     background-color: #5c8c95; 
+    justify-content: space-between;
     width: 100%;
     box-sizing: border-box; 
     position: fixed;  

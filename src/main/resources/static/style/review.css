@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #007bff, #ffffff);
+    background: linear-gradient(to right, #3D5A80, #A7C7E7);
     color: #333;
     text-align: center;
     margin: 0;
@@ -9,7 +9,7 @@ body {
 
 .title {
     margin: 20px;
-    color: #fff;
+    color: #ffffff;
 }
 
 .review-container {
@@ -53,20 +53,19 @@ body {
 }
 
 .card-front {
-    background: #ffffff;
-    color: #007bff;
+    background: #A7C7E7; /* Soft Baby Blue */
+    color: #1E3A5F; /* Deep Midnight Blue */
 }
 
 .card-front img {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    /* object-fit: cover; */
     margin-bottom: 10px;
 }
 
 .card-back {
-    background: #007bff;
+    background: #3D5A80; /* Deep Slate Blue */
     color: white;
     transform: rotateY(180deg);
 }
@@ -75,3 +74,4 @@ body {
     font-size: 14px;
     margin: 10px 0;
 }
+
