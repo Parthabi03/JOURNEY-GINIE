@@ -46,3 +46,13 @@
 .submit-btn:hover {
     background: rgb(30, 50, 70);
 }
+
+.text-box {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    /* Limit to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* background-color: lightgray; */
+}

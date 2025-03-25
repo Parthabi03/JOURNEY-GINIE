@@ -3,7 +3,7 @@ package edu.rims.Journey_Ginie.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.rims.Journey_Ginie.constant.Status;
+import edu.rims.Journey_Ginie.constant.DestinationStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -37,7 +37,7 @@ public class Destination extends Auditable {
     private Double price;
 
     @Enumerated(EnumType.STRING)
-    private Status status = Status.AVAILABLE;
+    private DestinationStatus destinationStatus = DestinationStatus.AVAILABLE;
 
     @OneToMany(mappedBy = "destination")
     private List<Booking> bookings = new ArrayList<>();
@@ -49,4 +49,7 @@ public class Destination extends Auditable {
         bookings.add(booking);
         booking.setDestination(this);
     }
+    @ManyToMany(mappedBy= "destinations")
+    private List<Widget> destinations;
+    
 }

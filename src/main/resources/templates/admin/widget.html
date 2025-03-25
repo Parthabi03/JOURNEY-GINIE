@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragment/admin.common :: head}"></head>
+
+<body>
+    <link rel="stylesheet" href="/style/admin.widget.css">
+    <link rel="stylesheet" href="/style/multiselect.css">
+
+    <script src="/script/multiselect.js" defer></script>
+
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" th:replace="~{fragment/admin.common :: .sidebar}"></aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar" th:replace="~{fragment/admin.common :: .top-bar}"></header>
+
+            <!-- Page Content -->
+            <section class="content">
+                <div class="content-header">
+                    <h2><i class="fas fa-suitcase-rolling"></i> Widget</a></h2>
+
+                    <form action="/admin/widget/add" method="post">
+                        <input type="text" name="widgetName" placeholder="Enter a Widget name.."
+                            data-th-value="${widget != null ? widget.widgetName : null}">
+                        <input type="number" name="sequence" placeholder="Enter Sequence.." required
+                            data-th-value="${widget != null ? widget.sequence : ''}">
+
+                        <button type="submit" class="submit-btn">Submit</button>
+
+
+                        <button onclick="openModal()" class="add-btn">
+                            <i class="fas fa-plus"></i> Add Widget</button>
+                    </form>
+                </div>
+
+                <!-- Data Table -->
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Widget Id </th>
+                            <th>Widget Name</th>
+                            <th>Widget Status</th>
+                            <th>Widget Sequence</th>
+                            <th>Actions</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr data-th-each="widget : ${widgets}">
+                            <td data-th-text="${widget.widgetId}"></td>
+                            <td data-th-text="${widget.widgetName}"></td>
+                            <td data-th-text="${widget.widgetStatus}"
+                                data-th-class="${widget.widgetStatus.name() == 'AVAILABLE' ? 'clr-yellow' : 'clr-red'}">
+                            </td>
+                            <td data-th-text="${widget.sequence}"></td>
+                            <td class="action-buttons">
+                                <a data-th-href="|/admin/widget/remove?id=${widget.widgetId}|"
+                                    onclick="return confirm('Are you sure?')">delete</a>
+                                <!-- <a data-th-href="|/admin/widget_product?id=${widget.widgetId}|">product</a> -->
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+
+    <div th:replace="fragment/admin.common :: modal('Add Widget', ~{::modalContent})"></div>
+
+    <!-- Modal Body Content -->
+    <th:block th:fragment="modalContent">
+        <form th:action="@{/admin/widget/add}" method="post" enctype="multipart/form-data" class="widget-form">
+            <input type="hidden" name="widgetId" data-th-value="${widget != null ? widget.widgetId : ''}">
+
+            <div class="form-group">
+                <label for="title"><i class="fas fa-font"></i> Widget Name</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description"><i class="fas fa-align-left"></i> Widget Status</label>
+                <textarea id="description" name="description"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="description"><i class="fas fa-align-left"></i> Widget Sequence</label>
+                <textarea id="description" name="description"></textarea>
+            </div>
+
+
+            <div class="multiselect-container">
+                <div class="select-box" onclick="toggleDropdown()">
+                    <div class="selected-items" id="selectedItems"></div>
+                    <span>▼</span>
+                </div>
+
+                <div class="options-container" id="optionsContainer">
+                    <label class="option" data-th-each="widget : ${widgets}">
+                        <input type="checkbox" name="widget" data-th-value="${widget.widgetId}"
+                            onchange="updateSelection(this)">
+                        <span data-th-text="${widget.widgetName}"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="submit-container">
+                <input type="hidden" name="_csrf" data-th-value="${_csrf.token}">
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-plus-circle"></i> SUBMIT
+                </button>
+            </div>
+
+        </form>
+        <hr>
+        <button onclick="closeModal()">Close</button>
+    </th:block>
+
+
+    <script src="/script/admin.widget.js"></script>
+</body>
+
+</html>

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/style/admin-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <script src="/script/admin.js"></script>
+    <script src="/script/admin.js" defer></script>
 </head>
 
 <body>
@@ -23,6 +23,8 @@
                 <li><a href="/admin/destinations"><i class="fas fa-map-marker-alt"></i> Destinations</a></li>
                 <li><a href="/admin/bookings"><i class="fas fa-calendar-check"></i> Bookings</a></li>
                 <li><a href="/admin/tours"><i class="fas fa-suitcase-rolling"></i> Tours</a></li>
+                <li><a href="/admin/packages"><i class="fa-solid fa-passport"></i> Packages</a></li>
+                <li><a href="/admin/widget"><i class="fa-solid fa-star"></i></i> Widgets</a></li>
                 <li><a href="/admin/customers"><i class="fas fa-users"></i> Customers</a></li>
                 <li><a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
             </ul>
@@ -67,11 +69,11 @@
     </div>
 
     <!-- fragment/modal.html -->
-    <div th:fragment="modal(title, content)" class="modal-overlay">
+    <div th:fragment="modal(title, content)" class="modal-overlay" id="modal">
         <div class="modal-content">
             <div class="modal-header">
                 <h2 th:text="${title}"></h2>
-                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
             </div>
             <div class="modal-body">
                 <th:block th:replace="${content}" />

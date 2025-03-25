@@ -1,0 +1,147 @@
+
+.addWidgetContainer form {
+    display: flex;
+    flex-direction: row;
+    gap: 10rem;
+}
+
+.addWidgetContainer {
+    padding-block: 1rem;
+}
+
+.addWidgetContainer input[type="text"] {
+    width: 100%;
+    padding: 0.8rem 0.5rem;
+}
+
+.addWidgetContainer input[type="number"] {
+    width: 100%;
+    padding: 0.8rem 0.5rem;
+    text-align: center;
+}
+
+.addWidgetContainer input[type="submit"] {
+    padding-inline: 4rem;
+    height: 54px;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background: #28a745;
+    outline: none;
+    /* box-shadow: 5px 5px 5px rgb(0, 0, 0.2); */
+    transition: 0.5s;
+}
+
+.addWidgetContainer input[type="submit"]:hover {
+    background-color: green;
+}
+
+.clr-yellow {
+    color: yellowgreen;
+}
+
+.clr-red {
+    color: red;
+}
+
+.action-buttons a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0 5px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.action-buttons a:first-child {
+
+    background-color: red;
+    color: white;
+}
+
+.action-buttons a:last-child {
+    background-color: green;
+    color: white;
+}
+
+action-buttons a:first-child:hover {
+    background-color: maroon;
+}
+
+.action-buttons a:last-child:hover {
+    background-color: darkgreen;
+}
+
+.widgetModal {
+    position: fixed;
+    z-index: 10;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: grid;
+    place-items: center;
+}
+
+.widgetModal .modal-box {
+    width: max(40%, 350px);
+    background-color: #f1f1f1;
+    border-radius: 1rem;
+    position: relative;
+    animation: flash-in 0.25s;
+}
+
+.widgetModal .modal-box h2 {
+    padding: 0.5rem 1rem;
+}
+
+.widgetModal .modal-box .modal-body {
+    padding: 1rem;
+}
+
+.widgetModal .modal-box .modal-body input[type="file"] {
+    width: 100%;
+    border: 1px solid gray;
+    margin-block: 0.5rem;
+}
+
+.widgetModal .modal-box .modal-body input[type="submit"] {
+    border-radius: 0.5rem;
+    padding: 0.2rem 2rem;
+    outline: none;
+    border: none;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1),
+        -5px 5px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.cross-icon {
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+}
+
+.cross-icon button {
+    all: unset;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: deeppink;
+}
+
+.widgetModal {
+    display: block;
+}
+
+@keyframes flash-in {
+    from {
+        opacity: 0;
+        scale: 0;
+    }
+
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}

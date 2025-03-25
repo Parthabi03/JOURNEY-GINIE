@@ -1,9 +1,10 @@
 /* General Styling */
+/* General Page Styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #eef2f3;
     color: #333;
 }
 
@@ -13,58 +14,75 @@ body {
     color: white;
     text-align: center;
     padding: 5px 0;
-    font-size: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 /* Main Container */
 .pdp-container {
-    max-width: 800px;
-    margin: 20px auto;
+    max-width: 850px;
+    margin: 40px auto;
     background: white;
-    padding: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
     text-align: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.pdp-container:hover {
+    transform: translateY(-5px);
 }
 
 /* Tour Image */
 .tour-image {
     width: 100%;
-    height: auto;
+    max-height: 400px;
+    object-fit: cover;
     border-radius: 10px;
-    margin-bottom: 20px;
 }
 
 /* Tour Details */
 .tour-details h2 {
-    margin: 10px 0;
-    font-size: 26px;
+    margin: 15px 0 10px;
+    font-size: 28px;
     color: rgb(44, 62, 80);
+    font-weight: bold;
 }
 
 .tour-details p {
     font-size: 18px;
-    margin: 8px 0;
+    line-height: 1.6;
+    margin: 10px 0;
+    color: #555;
 }
 
 .tour-details .price {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: bold;
     color: #e67e22;
+    margin-top: 10px;
 }
 
 /* Book Now Button */
 .book-now {
-    background-color: #e67e22;
+    display: inline-block;
+    background: linear-gradient(135deg, #e67e22, #d35400);
     color: white;
-    padding: 12px 20px;
+    padding: 14px 28px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 18px;
+    font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
 }
 
 .book-now:hover {
-    background-color: #d35400;
+    background: linear-gradient(135deg, #d35400, #c0392b);
+    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
 }

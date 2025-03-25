@@ -26,9 +26,11 @@
         <div>
           <h1>Special Offers & Tour Planning</h1>
           <p>Explore the best tour packages and exclusive offers for your next vacation!</p>
-          <div class="header">
+          <!-- <form action="/tour/search">
+            <div class="search-bar">
             <input type="text" placeholder="Search..." class="search-input">
           </div>
+          </form> -->
         </div>
       </div>
     </header>
@@ -36,15 +38,15 @@
     <!-- Offers Section -->
     <h2>Our Popular Tours</h2>
     <section class="offers">
-      <div class="offer-cards" data-th-each="tour : ${tours}">
+      <div class="offer-cards" data-th-each="package : ${tour.packages}">
 
         <div class="offer-card">
-          <a data-th-href="|/customer/tour/tour/pdp?tour = ${tour.id}|" style="all: unset;">
-          <img
-            src="https://captainkimo.com/wp-content/uploads/2014/09/Beautiful-Wave-Ocean-Reef-Park-Singer-Island-Florida.jpg"
-            alt="Beach Escape">
-          <h3 data-th-text="${tour.title}"></h3>
-          <p data-th-text="${tour.description}"></p>
+          <a data-th-href="|/customer/packages/pdp2?package=${package.id}|" style="all: unset;">
+          <!-- <img data-th-src="|/packages/images/${package.id}|" alt=""> -->
+          <img data-th-src="|/admin/packages/images/${package.id}|" width="40">
+          <h3 data-th-text="${package.name}"></h3>
+          <p data-th-text="${package.description}"></p>
+          <p data-th-text="|&#8377; ${package.price}|"></p>
             <button class="offer-btn">View Details</button>
           </a>
         </div>
@@ -85,8 +87,12 @@
           <input type="text" id="contact-info" name="contact-info" placeholder="Your name or email" required>
         </div>
 
-        <button type="submit" class="submit-btn">Submit Plan</button>
+        <!-- <a th:href="@{/customer/booking}">
+          <button class="submit-btn">Submit Plan</button>
+        </a> -->
       </form>
+      <button class="submit-btn" onclick="window.location.href='/customer/booking'">Submit Plan</button>
+
     </section>
 
     <section class="ftr"

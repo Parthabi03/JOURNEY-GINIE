@@ -35,7 +35,7 @@
                     <tbody>
                         <tr th:each="attraction : ${attractions}">
                             <td th:text="${attraction.attractionId}"></td>
-                            <td th:text="${attraction.attractionDescription}"></td>
+                            <td th:text="${attraction.attractionDescription}" class="text-box"></td>
                             <td>
                                 <img data-th-src="|/attraction/images/${attraction.attractionId}|" width="40">
                             </td>
@@ -95,11 +95,12 @@
             </div>
 
             <div class="submit-container">
+                
                 <button type="submit" class="submit-btn">
                     <i class="fas fa-plus-circle"></i> Add Attraction
                 </button>
             </div>
-
+            <input type="hidden" name="_csrf" data-th-value="${_csrf.token}">
         </form>
         <hr>
         <button onclick="closeModal()">Close</button>

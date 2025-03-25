@@ -16,6 +16,9 @@ public class Attraction extends Auditable {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String attractionId;
 
+    @Column(name = "attraction_name", columnDefinition = "TEXT")
+    private String attractionName;
+
     @Column(name = "attraction_description", columnDefinition = "TEXT")
     private String attractionDescription;
 

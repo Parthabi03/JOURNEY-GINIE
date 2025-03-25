@@ -17,32 +17,35 @@
             </ul>
         </nav>
     </header>
-    <div data-th-if="${destination_place != null}">
+    <div data-th-if="${destination != null}">
         <section class="trip-details">
             <div class="trip-image">
-                <img src="https://wallpaper.dog/large/10909872.jpg" alt="Trip Image">
+            <img data-th-src="@{/destination/images/{id}(id=${destination.destinationId})}" height="440" alt="">
             </div>
             <div class="trip-info">
-                <h1 data-th-text="${destination_place.placeDescription}"></h1>
-                <!-- <p class="price" data-th-text="|&#8377; ${destination_place.price} per person|"></p> -->
-                <h4 data-th-text="${destination_place.placeName}"></h4>
+                <h1 data-th-text="${destination.description}"></h1>
+                <h4 data-th-text="${destination.destinationName}"></h4>
+                <p class="price" data-th-text="|&#8377; ${destination.price} per person|"></p>
+                <a href="/customer/booking">
                 <button class="book-now">Book Now</button>
+                </a>
             </div>
+    
         </section>
     </div>
-    <div data-th-if="${tourPackage != null}">
+    <!-- <div data-th-if="${tourPackage != null}">
         <section class="trip-details">
             <div class="trip-image">
                 <img src="https://wallpaper.dog/large/10909872.jpg" alt="Trip Image">
             </div>
             <div class="trip-info">
-                <h1 data-th-text="${tourPackage.packageTitle}"></h1>
+                <h1 data-th-text="${tourPackage.packageTitle}"></h1> -->
                 <!-- <p class="price" data-th-text="|&#8377; ${destination_place.price} per person|"></p> -->
-                <h4 data-th-text="${tourPackage.packageDescription}"></h4>
+                <!-- <h4 data-th-text="${tourPackage.packageDescription}"></h4>
                 <a class="book-now">Book Now</a>
             </div>
         </section>
-    </div>
+    </div> -->
     <footer class="footer">
     <p>&copy; 2025 Journey Ginnie. All rights reserved.</p>
     </footer>

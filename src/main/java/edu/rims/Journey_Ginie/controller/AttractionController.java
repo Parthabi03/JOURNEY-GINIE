@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.UUID;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,8 +22,10 @@ public class AttractionController {
     @Autowired
     private AttractionRepository attractionRepository;
 
-    @GetMapping("/customer/attraction/attraction")
+    @GetMapping("/customer/attraction")
     public String getAttractionByAttractionId(@RequestParam("attraction") String attractionId, Model model) {
+        List<Attraction> attractions = attractionRepository.findAll();
+        model.addAttribute("attractions", attractions);
         Attraction attraction = attractionRepository.findById(attractionId).orElseThrow();
         model.addAttribute("attraction", attraction);
         return "customer/attraction";

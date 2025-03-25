@@ -45,19 +45,6 @@ CREATE TABLE attraction (
 
 );
 
-CREATE TABLE attraction_plp (
-    plp_id VARCHAR(255) PRIMARY KEY,
-    plp_name VARCHAR(150) NOT NULL,
-    plp_description TEXT NULL,
-    image_url VARCHAR(2083) NOT NULL,
-    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    created_by VARCHAR(50),
-    updated_by VARCHAR(50),
-    FOREIGN KEY (attraction_id) REFERENCES attraction(attraction_id) ON DELETE SET NULL
-    
-);
-
 -- Tours Table
 CREATE TABLE tour (
     tour_id VARCHAR(255) PRIMARY KEY,
@@ -77,21 +64,6 @@ CREATE TABLE tour (
 
 );
 
-CREATE TABLE tour_packages (
-    package_id VARCHAR(255) PRIMARY KEY,
-    package_title VARCHAR(200) NOT NULL,
-    package_description TEXT NULL,
-    package_destination VARCHAR(100) NOT NULL,
-    package_price DOUBLE NOT NULL,
-    package_availability INT NOT NULL,
-    package_start_date DATE NOT NULL,
-    package_end_date DATE NOT NULL,
-    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    created_by VARCHAR(255),
-    updated_by VARCHAR(255)
-);
-
 CREATE TABLE booking (
     booking_id VARCHAR(255) PRIMARY KEY,
     user_id INT NOT NULL,
@@ -108,23 +80,6 @@ CREATE TABLE booking (
     created_by VARCHAR(255),
     updated_by VARCHAR(255)
 );
-
--- Bookings Table
--- CREATE TABLE booking (
---     booking_id VARCHAR(255) PRIMARY KEY,
---     user_id INT NOT NULL,
---     tour_id VARCHAR(255) NOT NULL,
---     booking_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
---     booking_status ENUM('PENDING', 'CONFIRMED', 'CANCELED','COMPLETED') DEFAULT 'PENDING',
---     number_of_guests INT NOT NULL,
---     total_amount DOUBLE NOT NULL,
---     FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE,
---     FOREIGN KEY (tour_id) REFERENCES tour(tour_id) ON DELETE CASCADE,
---     creaed_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
---     updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
---     created_by VARCHAR(255),
---     updated_by VARCHAR(255)
--- );
 
 -- Payments Table
 CREATE TABLE payment (
@@ -170,6 +125,16 @@ CREATE TABLE wishlist (
     category VARCHAR(100),
     FOREIGN KEY (user_id) REFERENCES users(user_id),
     FOREIGN KEY (tour_id) REFERENCES tour(tour_id)
+);
+
+CREATE TABLE widget (
+    widget_id VARCHAR(255) PRIMARY KEY,
+    widget_name VARCHAR(100) NOT NULL,
+    widget_status ENUM('AVAILABLE','UNAVAILABLE') DEFAULT 'AVAILABLE',
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    created_by VARCHAR(50),
+    updated_by VARCHAR(50)
 );
 
 
