@@ -1,77 +1,77 @@
 package edu.rims.Journey_Ginie.controller;
 
-
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-// import java.util.List;
-// import java.util.Locale.Destination;
-import java.util.UUID;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import edu.rims.Journey_Ginie.entity.Destination;
+import edu.rims.Journey_Ginie.service.DestinationService;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
-
-import edu.rims.Journey_Ginie.entity.Destination;
-import edu.rims.Journey_Ginie.repository.DestinationRepository;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
+@RequestMapping("/destinations")
+@RequiredArgsConstructor
 public class DestinationController {
-   @Autowired
-   private DestinationRepository destinationRepository;
 
-   @GetMapping("/customer/destination/destination")
-   String getDestinationByDestinationId(@RequestParam("destination") String destinationId, Model model) {
-      Destination destination = destinationRepository.findById(destinationId).orElseThrow();
-      model.addAttribute("destination", destination);
-      return "customer/destination";
-   }  
-   
-   
-    @PostMapping("/admin/destinations")
-    public String destinationAdd(@ModelAttribute Destination destination,
-            @RequestParam("destinationImageFile") MultipartFile file) throws IOException {
+    private final DestinationService destinationService;
 
-        if (!file.isEmpty()) {
-            String originalFilename = file.getOriginalFilename();
-            String extName = originalFilename.substring(originalFilename.lastIndexOf("."));
+    @GetMapping
+    public String list(@RequestParam(required = false) String keyword,
+                       @RequestParam(required = false) String country,
+                       Model model) {
+        if (keyword != null && !keyword.isBlank())
+            model.addAttribute("destinations", destinationService.searchByKeyword(keyword));
+        else if (country != null && !country.isBlank())
+            model.addAttribute("destinations", destinationService.getByCountry(country));
+        else
+            model.addAttribute("destinations", destinationService.getAllDestinations());
+        return "destination/list";
+    }
 
-            String fileName = "upload_images/" + UUID.randomUUID().toString() + extName;
+    @GetMapping("/{id}")
+    public String detail(@PathVariable String id, Model model) {
+        model.addAttribute("destination", destinationService.getById(id));
+        model.addAttribute("places", destinationService.getPlacesByDestination(id));
+        return "destination/detail";
+    }
 
-            FileOutputStream fileOutputStream = new FileOutputStream(fileName);
-            fileOutputStream.write(file.getBytes());
-            fileOutputStream.close();     
-            destination.setImageUrl(fileName);
-         }
-        destinationRepository.save(destination);
-        return "redirect:/admin/destinations";
-      }
+    @GetMapping("/add")
+    public String showAddForm(Model model) {
+        model.addAttribute("destination", new Destination());
+        return "destination/add";
+    }
 
-      @GetMapping("/destination/images/{destinationId}")
-      @ResponseBody
-      public byte[] getDestinationImage(@PathVariable String destinationId) throws IOException{
-         Destination destination = destinationRepository.findById(destinationId).orElseThrow();
-         String imageName = destination.getImageUrl();
-         if (imageName== null || imageName.startsWith("http")) {
-            return null;
-            
-         }
-         FileInputStream fileInputStream = new FileInputStream(imageName);
-          return fileInputStream.readAllBytes();
-      }
+    @PostMapping("/add")
+    public String add(@Valid @ModelAttribute("destination") Destination dest,
+                      BindingResult result, RedirectAttributes ra) {
+        if (result.hasErrors()) return "destination/add";
+        destinationService.addDestination(dest);
+        ra.addFlashAttribute("success", "Destination added!");
+        return "redirect:/destinations";
+    }
 
-      
+    @GetMapping("/edit/{id}")
+    public String showEditForm(@PathVariable String id, Model model) {
+        model.addAttribute("destination", destinationService.getById(id));
+        return "destination/edit";
+    }
 
-   // @GetMapping("/customer/destination_place/pdp")
-   // String getDestinationByplaceId(@RequestParam("destination_place") String placeId, Model model) {
-   //    return "customer/pdp";
-   // }
+    @PostMapping("/edit/{id}")
+    public String update(@PathVariable String id,
+                         @Valid @ModelAttribute("destination") Destination dest,
+                         BindingResult result, RedirectAttributes ra) {
+        if (result.hasErrors()) return "destination/edit";
+        destinationService.updateDestination(id, dest);
+        ra.addFlashAttribute("success", "Destination updated!");
+        return "redirect:/destinations";
+    }
 
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable String id, RedirectAttributes ra) {
+        destinationService.deleteDestination(id);
+        ra.addFlashAttribute("success", "Destination deleted!");
+        return "redirect:/destinations";
+    }
 }
